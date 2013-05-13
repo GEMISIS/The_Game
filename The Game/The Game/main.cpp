@@ -6,14 +6,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 
-	World w("test.png");
-	World w1("test.png");
-	World w2("test.png");
-	World w3("test.png");
+	World w[5];
+
+	for(int i = 0;i < 3;i += 1)
+	{
+		w[i].setTexture("test.png");
+		w[i].setPosition(((float)i) * 64.0f, 0.0f);
+		//w[i].setPosition(((float)i) * 0.0f, 0.0f);
+	}
 
     while (window.isOpen())
     {
-		World w4("test.png");
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -23,11 +26,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
         window.clear();
 		
-		w.Update(window);
-		w1.Update(window);
-		w2.Update(window);
-		w3.Update(window);
-		w4.Update(window);
+		for(int i = 0;i < 5;i += 1)
+		{
+			w[i].Update(window);
+		}
         
         window.display();
     }

@@ -13,12 +13,15 @@ class World
 public:
 	World();
 	World(const string& filename);
+	void setPosition(float x, float y);
+	void setTexture(const string& filename);
 	void Update(sf::RenderWindow& window);
 	~World();
+protected:
+	static unordered_map<string, sf::Texture*> textureList;
 private:
 	string filename;
 	sf::Sprite sprite;
-	static unordered_map<string, sf::Texture*> textureList;
 };
 
 #endif

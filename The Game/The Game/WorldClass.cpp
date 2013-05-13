@@ -8,6 +8,16 @@ World::World()
 
 World::World(const string& filename)
 {
+	this->setTexture(filename);
+}
+
+void World::setPosition(float x, float y)
+{
+	this->sprite.setPosition(sf::Vector2f(x, y));
+}
+
+void World::setTexture(const string& filename)
+{
 	if(World::textureList.count(filename) > 0)
 	{
 		string s(filename.c_str());
