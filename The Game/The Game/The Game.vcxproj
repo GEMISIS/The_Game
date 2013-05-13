@@ -77,10 +77,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="WorldClass.cpp" />
+    <ClCompile Include="BaseObjectClass.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WorldClass.h" />
+    <ClInclude Include="BaseObjectClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

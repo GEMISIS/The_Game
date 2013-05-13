@@ -1,5 +1,5 @@
-#ifndef _WORLD_CLASS_H_
-#define _WORLD_CLASS_H_
+#ifndef _BaseObject_CLASS_H_
+#define _BaseObject_CLASS_H_
 
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
@@ -8,20 +8,25 @@
 
 using namespace std;
 
-class World
+class BaseObject
 {
 public:
-	World();
-	World(const string& filename);
+	BaseObject();
+	BaseObject(const string& filename);
+	// Used for debug reasons atm.
 	void setPosition(float x, float y);
+	// Used for debug reasons atm.
 	void setTexture(const string& filename);
+	// Used for debug reasons atm.
 	void Update(sf::RenderWindow& window);
-	~World();
+	~BaseObject();
+
+	// Used for debug reasons atm.
+	sf::Sprite sprite;
 protected:
 	static unordered_map<string, sf::Texture*> textureList;
 private:
 	string filename;
-	sf::Sprite sprite;
 };
 
 #endif
