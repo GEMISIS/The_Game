@@ -6,19 +6,12 @@ BaseObject::BaseObject()
 {
 }
 
-BaseObject::BaseObject(const string& filename)
+BaseObject::BaseObject(const string filename)
 {
 	this->setTexture(filename);
 }
 
-// Used for debug reasons atm.
-void BaseObject::setPosition(float x, float y)
-{
-	this->sprite.setPosition(sf::Vector2f(x, y));
-}
-
-// Used for debug reasons atm.
-void BaseObject::setTexture(const string& filename)
+void BaseObject::setTexture(const string filename)
 {
 	if(BaseObject::textureList.count(filename) > 0)
 	{
@@ -41,14 +34,6 @@ void BaseObject::setTexture(const string& filename)
 		}
 		this->filename = filename;
 	}
-
-	this->sprite.setTexture(*BaseObject::textureList[this->filename]);
-}
-
-// Used for debug reasons atm.
-void BaseObject::Update(sf::RenderWindow& window)
-{
-	window.draw(this->sprite);
 }
 
 BaseObject::~BaseObject()

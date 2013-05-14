@@ -1,6 +1,5 @@
 #include <Windows.h>
-#include <SFML/Graphics.hpp>
-#include "BaseObjectClass.h"
+#include "CharacterClass.h"
 
 //############################################################
 //############################################################
@@ -28,23 +27,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML works!");
 
-	BaseObject w[TOTAL_SPRITES];
+	Character w[TOTAL_SPRITES];
 
 	for(int y = 0;y < HEIGHT / SPRITE_WIDTH;y += 1)
 	{
 		for(int x = 0;x < WIDTH / SPRITE_HEIGHT;x += 1)
 		{
 			int i = x + y * (WIDTH / SPRITE_WIDTH);
-			w[i].setTexture("test.png");
+			w[i].setImage("test.png");
 			w[i].setPosition((float)x * SPRITE_WIDTH, (float)y * SPRITE_HEIGHT);
 		}
 	}
 
     while (window.isOpen())
     {
-		BaseObject b("test.png");
+		Character b("test.png");
 		b.setPosition(WIDTH / 2, HEIGHT / 2);
-		b.sprite.setColor(sf::Color::Red);
+		b.setColor(sf::Color::Red);
 
 		sf::Event event;
         while (window.pollEvent(event))
