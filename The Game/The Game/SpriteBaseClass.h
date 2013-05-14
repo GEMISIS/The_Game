@@ -1,9 +1,9 @@
 #ifndef _SPRITE_BASE_CLASS_H_
 #define _SPRITE_BASE_CLASS_H_
 
-#include "BaseObjectClass.h"
+#include "TextureInterface.h"
 
-class SpriteBase : protected BaseObject, public Sprite
+class SpriteBase : protected TextureInterface, public Sprite
 {
 public:
 	SpriteBase();

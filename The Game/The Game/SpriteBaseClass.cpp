@@ -1,16 +1,16 @@
 #include "SpriteBaseClass.h"
 
-SpriteBase::SpriteBase() : BaseObject()
+SpriteBase::SpriteBase() : TextureInterface()
 {
 }
 
-SpriteBase::SpriteBase(const string filename) : BaseObject(filename)
+SpriteBase::SpriteBase(const string filename) : TextureInterface(filename)
 {
-	this->setTexture(*this->textureList[this->filename]);
+	this->setTexture(*this->getTextureFromMap());
 }
 
 void SpriteBase::setImage(const string filename)
 {
-	this->addTexture(filename);
-	this->setTexture(*this->textureList[this->filename]);
+	this->preloadTexture(filename);
+	this->setTexture(*this->getTextureFromMap());
 }

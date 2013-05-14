@@ -79,12 +79,12 @@
     <ClCompile Include="BaseContext.cpp" />
     <ClCompile Include="InGameContext.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="BaseObjectClass.cpp" />
+    <ClCompile Include="TextureInterface.cpp" />
     <ClCompile Include="CharacterClass.cpp" />
     <ClCompile Include="SpriteBaseClass.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseObjectClass.h" />
+    <ClInclude Include="TextureInterface.h" />
     <ClInclude Include="BaseContext.h" />
     <ClInclude Include="CharacterClass.h" />
     <ClInclude Include="InGameContext.h" />
