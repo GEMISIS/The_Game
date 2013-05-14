@@ -3,17 +3,12 @@
 
 #include "BaseObjectClass.h"
 
-class SpriteBase : protected BaseObject
+class SpriteBase : protected BaseObject, public Sprite
 {
 public:
 	SpriteBase();
 	SpriteBase(const string filename);
 	void setImage(const string filename);
-	void setPosition(float x, float y);
-	void setColor(sf::Color color);
-	void Update(sf::RenderWindow& window);
-protected:
-	sf::Sprite sprite;
 };
 
 #endif

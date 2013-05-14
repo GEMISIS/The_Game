@@ -59,10 +59,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			for(int x = 0;x < WIDTH / SPRITE_HEIGHT;x += 1)
 			{
 				int i = x + y * (WIDTH / SPRITE_WIDTH);
-				w[i].Update(window);
+				window.draw(w[i]);
 			}
 
-			b.Update(window);
+			window.draw(b);
 		}
 
         window.display();
