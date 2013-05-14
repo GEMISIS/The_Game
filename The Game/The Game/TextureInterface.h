@@ -1,5 +1,5 @@
-#ifndef _BaseObject_CLASS_H_
-#define _BaseObject_CLASS_H_
+#ifndef _TEXTURE_INTERFACE_H_
+#define _TEXTURE_INTERFACE_H_
 
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
