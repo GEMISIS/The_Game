@@ -76,6 +76,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseContext.cpp" />
+    <ClCompile Include="InGameContext.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BaseObjectClass.cpp" />
     <ClCompile Include="CharacterClass.cpp" />
@@ -83,7 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseObjectClass.h" />
+    <ClInclude Include="BaseContext.h" />
     <ClInclude Include="CharacterClass.h" />
+    <ClInclude Include="InGameContext.h" />
     <ClInclude Include="SpriteBaseClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

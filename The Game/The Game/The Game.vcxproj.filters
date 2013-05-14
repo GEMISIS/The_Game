@@ -13,6 +13,12 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Header Files\Context">
+      <UniqueIdentifier>{9db2043e-d2f8-4015-8352-c48760b0beab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Context">
+      <UniqueIdentifier>{ce5ec70d-a8d0-4b00-b3da-73522c513441}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,6 +33,12 @@
     <ClCompile Include="CharacterClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseContext.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameContext.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseObjectClass.h">
@@ -37,6 +49,12 @@
     </ClInclude>
     <ClInclude Include="CharacterClass.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseContext.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameContext.h">
+      <Filter>Header Files\Context</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
