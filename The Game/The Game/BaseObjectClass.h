@@ -15,6 +15,8 @@ public:
 	BaseObject();
 	BaseObject(const string filename);
 	void addTexture(const string filename);
+	static void addTextureToList(const string filename);
+	static void removeTextureFromList(const string filename);
 	~BaseObject();
 protected:
 	string filename;
