@@ -6,9 +6,10 @@
 class InGameContext : public BaseContext{
 public:
 	InGameContext();
-	void handleEvent(sf::Event &e, sf::RenderWindow &w);
+	InGameContext(sf::RenderWindow* w);
+	void handleEvent(sf::Event &e);
 	void updateLogic(sf::Time delta);
-	void draw(sf::RenderWindow &w);
+	void draw();
 
 private:
 	

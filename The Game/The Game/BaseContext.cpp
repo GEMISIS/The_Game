@@ -2,7 +2,8 @@
 #include <iostream>
 
 BaseContext::BaseContext(){}
+BaseContext::BaseContext(sf::RenderWindow* w){window = w;}
 
-void BaseContext::handleEvent(sf::Event &e, sf::RenderWindow &w){}
+void BaseContext::handleEvent(sf::Event &e){}
 void BaseContext::updateLogic(sf::Time delta){}
-void BaseContext::draw(sf::RenderWindow &w){}
+void BaseContext::draw(){}

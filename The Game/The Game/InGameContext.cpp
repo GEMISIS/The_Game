@@ -3,7 +3,8 @@
 #include <iostream>
 
 InGameContext::InGameContext(){}
+InGameContext::InGameContext(sf::RenderWindow* w): BaseContext(w){}
 
-void InGameContext::handleEvent(sf::Event &e, sf::RenderWindow &w){}
+void InGameContext::handleEvent(sf::Event &e){}
 void InGameContext::updateLogic(sf::Time delta){}
-void InGameContext::draw(sf::RenderWindow &w){}
+void InGameContext::draw(){}

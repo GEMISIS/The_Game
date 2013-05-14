@@ -6,9 +6,13 @@
 class BaseContext{
 public:
 	BaseContext();
-	virtual void handleEvent(sf::Event &e, sf::RenderWindow &w);
+	BaseContext(sf::RenderWindow* w);
+	virtual void handleEvent(sf::Event &e);
 	virtual void updateLogic(sf::Time delta);
-	virtual void draw(sf::RenderWindow &w);
+	virtual void draw();
+
+protected:
+	sf::RenderWindow* window;
 
 private:
 
