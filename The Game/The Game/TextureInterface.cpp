@@ -3,58 +3,91 @@
 unordered_map<string, Texture> TextureInterface::textureMap;
 unordered_map<string, unsigned int> TextureInterface::textureAmounts;
 
-TextureInterface::TextureInterface(){}
-TextureInterface::TextureInterface(const TextureInterface &ti){
-	filename = ti.filename;
-	texLoaded = ti.texLoaded;
-	loadedTexture = ti.loadedTexture;
-	incTexAmount();
+TextureInterface::TextureInterface()
+{
 }
-TextureInterface::TextureInterface(const string &filename){setLoadedTexture(filename);}
-TextureInterface::~TextureInterface(){decTexAmount();}
+
+TextureInterface::TextureInterface(const TextureInterface &ti)
+{
+	this->filename = ti.filename;
+	this->texLoaded = ti.texLoaded;
+	this->loadedTexture = ti.loadedTexture;
+	this->incTexAmount();
+}
+
+TextureInterface::TextureInterface(const string &filename)
+{
+	this->setLoadedTexture(filename);
+}
+
+TextureInterface::~TextureInterface()
+{
+	this->decTexAmount();
+}
 
 //public
 
 void TextureInterface::setLoadedTexture(const string &filename)
 {
-	if(texLoaded) decTexAmount();
-
-	if(textureMap.count(filename) > 0){
-		int i;
-		int j = i;
-		loadedTexture = &textureMap[filename];
-		this->filename = filename;
-		texLoaded = true;
-		incTexAmount();
-		return;
+	if(this->texLoaded)
+	{
+		this->decTexAmount();
 	}
 
-	Texture t;
-	if(!t.loadFromFile(filename)){cout << "Could not load texture " << filename << endl; return;}
-	textureMap[filename] = t;
+	if(TextureInterface::textureMap.count(filename) == 0)
+	{
+		Texture t;
+		if(!t.loadFromFile(filename))
+		{
+			cout << "Could not load texture " << filename << endl;
+			return;
+		}
+		else
+		{
+			this->textureMap[filename] = t;
+		}
+	}
 
-	loadedTexture = &textureMap[filename];
+	this->loadedTexture = &textureMap[filename];
 	this->filename = filename;
-	texLoaded = true;
-	incTexAmount();
+	this->texLoaded = true;
+	this->incTexAmount();
 }
 
 //private
 
-unsigned int TextureInterface::getTexAmount(){
-	if(textureAmounts.count(filename) == 0) return 0;
-	return textureAmounts[filename];
+unsigned int TextureInterface::getTexAmount()
+{
+	return (this->textureAmounts.count(this->filename) > 0) ? this->textureAmounts[this->filename] : 0;
 }
-void TextureInterface::incTexAmount(){
-	if(textureAmounts.count(filename) == 0){textureAmounts[filename] = 1; return;}
-	textureAmounts[filename]++;
-}
-void TextureInterface::decTexAmount(){
-	if(textureAmounts.count(filename) == 0) return;
-	if(textureAmounts[filename] == 1){
-		textureMap.erase(filename);
-		textureAmounts.erase(filename);
-		return;
+
+void TextureInterface::incTexAmount()
+{
+	if(this->textureAmounts.count(this->filename) == 0)
+	{
+		this->textureAmounts.insert(pair<string, int>(this->filename, 1));
 	}
-	textureAmounts[filename]--;
+	else
+	{
+		this->textureAmounts[this->filename] += 1;
+	}
+}
+
+void TextureInterface::decTexAmount()
+{
+	if(this->textureAmounts.size() > 0)
+	{
+		if(this->textureAmounts.count(this->filename) > 0)
+		{
+			if(this->textureAmounts[this->filename] == 1)
+			{
+				this->textureMap.erase(this->filename);
+				this->textureAmounts.erase(this->filename);
+			}
+			else
+			{
+				this->textureAmounts[this->filename] -= 1;
+			}
+		}
+	}
 }
