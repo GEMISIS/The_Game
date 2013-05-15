@@ -34,27 +34,31 @@ void InGameContext::handleEvent(Event &e)
 	}
 	if(e.type == Event::KeyPressed)
 	{
-		if(e.key.code == Keyboard::Left)
-		{
-			velocity.x = -velocitySpeed.x;
-		}
-		if(e.key.code == Keyboard::Right)
-		{
-			velocity.x = velocitySpeed.x;
-		}
-		if(e.key.code == Keyboard::Up)
-		{
-			velocity.y = -velocitySpeed.y;
-		}
-		if(e.key.code == Keyboard::Down)
-		{
-			velocity.y = velocitySpeed.y;
-		}
 	}
 }
 
 void InGameContext::updateLogic(Time delta)
 {
+	if(Keyboard::isKeyPressed(Keyboard::Left))
+	{
+		velocity.x = -velocitySpeed.x;
+	}
+	if(Keyboard::isKeyPressed(Keyboard::Right))
+	{
+		velocity.x = velocitySpeed.x;
+	}
+	if(Keyboard::isKeyPressed(Keyboard::Up))
+	{
+		velocity.y = -velocitySpeed.y;
+	}
+	if(Keyboard::isKeyPressed(Keyboard::Down))
+	{
+		velocity.y = velocitySpeed.y;
+	}
+	if(Keyboard::isKeyPressed(Keyboard::Escape))
+	{
+		this->exitGameTrigger = true;
+	}
 	sprite.move(velocity);
 }
 
