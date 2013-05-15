@@ -4,7 +4,11 @@
 #define WIDTH 800
 #define HEIGHT 600
 
+#if _DEBUG
+int main()
+#else
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
+#endif
 {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "The Game");
 	BaseContext::currentContext = new InGameContext(window);
