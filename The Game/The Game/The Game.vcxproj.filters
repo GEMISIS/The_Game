@@ -25,15 +25,15 @@
     <Filter Include="Source Files\Physics">
       <UniqueIdentifier>{d7621ef3-1d1d-4329-8660-eb3fc2539545}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entity">
+      <UniqueIdentifier>{4aaf0839-a2a3-4551-978a-3bee41f7fcd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entity">
+      <UniqueIdentifier>{05c140a0-206a-4e14-98b5-46d8d144efcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteBaseClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BaseContext.cpp">
@@ -45,17 +45,14 @@
     <ClCompile Include="TextureInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Force.cpp">
-      <Filter>Source Files\Physics</Filter>
+    <ClCompile Include="CharacterClass.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SpriteBaseClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CharacterClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BaseContext.h">
       <Filter>Header Files\Context</Filter>
     </ClInclude>
@@ -65,8 +62,11 @@
     <ClInclude Include="TextureInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Force.h">
-      <Filter>Header Files\Physics</Filter>
+    <ClInclude Include="CharacterClass.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

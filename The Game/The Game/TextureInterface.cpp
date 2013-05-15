@@ -1,93 +1,58 @@
 #include "TextureInterface.h"
 
-unordered_map<string, Texture*> TextureInterface::textureMap;
+unordered_map<string, Texture> TextureInterface::textureMap;
 unordered_map<string, unsigned int> TextureInterface::textureAmounts;
 
-TextureInterface::TextureInterface()
-{
+TextureInterface::TextureInterface(){}
+TextureInterface::TextureInterface(const TextureInterface &ti){
+	filename = ti.filename;
+	texLoaded = ti.texLoaded;
+	loadedTexture = ti.loadedTexture;
+	incTexAmount();
 }
+TextureInterface::TextureInterface(const string &filename){setLoadedTexture(filename);}
+TextureInterface::~TextureInterface(){decTexAmount();}
 
-TextureInterface::TextureInterface(const string filename)
-{
-	this->preloadTexture(filename);
-}
+//public
 
-Texture* TextureInterface::getTextureFromMap()
+void TextureInterface::setLoadedTexture(const string &filename)
 {
-	return this->textureMap[this->filename];
-}
+	if(texLoaded) decTexAmount();
 
-void TextureInterface::preloadTexture(const string filename)
-{
-	if(TextureInterface::textureMap.count(filename) == 0)
-	{
-		Texture* t = new Texture();
-		if(!t->loadFromFile(filename))
-		{
-			cout << "Could not load texture " << filename << endl;
-			return;
-		}
-		else
-		{
-			TextureInterface::textureMap.insert(pair<string, Texture*>(filename, t));
-		}
-		TextureInterface::textureAmounts.insert(pair<string, int>(filename, 1));
+	if(textureMap.count(filename) > 0){
+		loadedTexture = &textureMap[filename];
+		this->filename = filename;
+		texLoaded = true;
+		incTexAmount();
+		return;
 	}
-	else
-	{
-		textureAmounts[filename] += 1;
-	}
+
+	Texture t;
+	if(!t.loadFromFile(filename)){cout << "Could not load texture " << filename << endl; return;}
+	textureMap[filename] = t;
+
+	loadedTexture = &textureMap[filename];
 	this->filename = filename;
+	texLoaded = true;
+	incTexAmount();
 }
 
-void TextureInterface::preloadTextureToList(const string filename)
-{
-	if(TextureInterface::textureMap.count(filename) == 0)
-	{
-		Texture* t = new Texture();
-		if(!t->loadFromFile(filename))
-		{
-			cout << "Could not load texture " << filename << endl;
-		}
-		else
-		{
-			TextureInterface::textureMap.insert(pair<string, Texture*>(filename, t));
-			TextureInterface::textureAmounts.insert(pair<string, int>(filename, 1));
-		}
-		textureAmounts.insert(pair<string, int>(filename, 1));
+//private
+
+unsigned int TextureInterface::getTexAmount(){
+	if(textureAmounts.count(filename) == 0) return 0;
+	return textureAmounts[filename];
+}
+void TextureInterface::incTexAmount(){
+	if(textureAmounts.count(filename) == 0){textureAmounts[filename] = 1; return;}
+	textureAmounts[filename]++;
+}
+void TextureInterface::decTexAmount(){
+	if(textureAmounts.count(filename) == 0) return;
+	if(textureAmounts[filename] == 1){
+		textureMap.erase(filename);
+		textureAmounts.erase(filename);
+		return;
 	}
+	textureAmounts[filename]--;
 }
-
-void TextureInterface::removeTextureFromList(const string filename)
-{
-	if(TextureInterface::textureMap.count(filename) > 0)
-	{
-		if(TextureInterface::textureAmounts[filename] < 2)
-		{
-			TextureInterface::textureMap.at(filename)->~Texture();
-			TextureInterface::textureMap.erase(filename);
-			TextureInterface::textureAmounts.erase(filename);
-		}
-	}
-}
-
-TextureInterface::~TextureInterface()
-{
-	if(TextureInterface::textureMap.size() > 0)
-	{
-		if(TextureInterface::textureMap.count(filename) > 0)
-		{
-			if(TextureInterface::textureAmounts[filename] < 2)
-			{
-				TextureInterface::textureMap.at(filename)->~Texture();
-				TextureInterface::textureMap.erase(filename);
-				TextureInterface::textureAmounts.erase(filename);
-			}
-			else
-			{
-				TextureInterface::textureAmounts[filename] -= 1;
-			}
-		}
-	}
-}
-

@@ -1,9 +1,9 @@
 #include "InGameContext.h"
-#include "CharacterClass.h"
 
+#include "Entity.h"
 #include <iostream>
 
-SpriteBase sprite;
+Entity sprite;
 const Vector2f velocitySpeed(0.5f, 0.5f);
 Vector2f velocity;
 

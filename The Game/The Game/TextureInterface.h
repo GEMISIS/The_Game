@@ -13,16 +13,23 @@ class TextureInterface
 {
 public:
 	TextureInterface();
-	TextureInterface(const string filename);
-	Texture* getTextureFromMap();
-	void preloadTexture(const string filename);
-	static void preloadTextureToList(const string filename);
-	static void removeTextureFromList(const string filename);
+	TextureInterface(const string &filename);
 	~TextureInterface();
+	void setLoadedTexture(const string &filename);
+
+protected:
+	Texture* loadedTexture;
+
 private:
-	string filename;
-	static unordered_map<string, Texture*> textureMap;
+	static unordered_map<string, Texture> textureMap;
 	static unordered_map<string, unsigned int> textureAmounts;
+
+	string filename;
+	bool texLoaded;
+
+	unsigned int getTexAmount();
+	void incTexAmount();
+	void decTexAmount();
 };
 
 #endif
