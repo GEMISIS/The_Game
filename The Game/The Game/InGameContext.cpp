@@ -34,6 +34,10 @@ void InGameContext::handleEvent(Event &e)
 	}
 	if(e.type == Event::KeyPressed)
 	{
+		if(e.key.code == Keyboard::Escape)
+		{
+			this->window->close();
+		}
 	}
 }
 
@@ -54,10 +58,6 @@ void InGameContext::updateLogic(Time delta)
 	if(Keyboard::isKeyPressed(Keyboard::Down))
 	{
 		velocity.y = velocitySpeed.y;
-	}
-	if(Keyboard::isKeyPressed(Keyboard::Escape))
-	{
-		this->window->close();
 	}
 	sprite.move(velocity);
 }
