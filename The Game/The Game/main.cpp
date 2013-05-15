@@ -7,19 +7,7 @@
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "The Game");
-
-	BaseContext* currentContext;
-
-	RenderTexture mainGameTexture;
-	if(!mainGameTexture.create(WIDTH, HEIGHT))
-	{
-		return 0;
-	}
-
-	InGameContext mainGameContext(&mainGameTexture);
-
-	currentContext = &mainGameContext;
-
+	BaseContext* currentContext = new InGameContext(window);
 	sf::Clock deltaClock;
 
     while (window.isOpen())
@@ -37,10 +25,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
         window.clear();
 		currentContext->draw();
-		Sprite sprite(mainGameTexture.getTexture());
-		window.draw(sprite);
 		window.display();
     }
 
+	delete currentContext;
     return 0;
 }

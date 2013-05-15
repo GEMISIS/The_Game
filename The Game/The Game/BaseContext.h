@@ -8,12 +8,12 @@ using namespace sf;
 class BaseContext{
 public:
 	BaseContext();
-	BaseContext(RenderTexture* renderTexture);
+	BaseContext(RenderWindow &window);
 	virtual void handleEvent(Event &e) = 0;
 	virtual void updateLogic(Time delta) = 0;
 	virtual void draw() = 0;
 protected:
-	RenderTexture* renderTexture;
+	RenderWindow* window;
 private:
 };
 

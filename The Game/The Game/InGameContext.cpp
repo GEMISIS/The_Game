@@ -11,10 +11,10 @@ InGameContext::InGameContext()
 {
 }
 
-InGameContext::InGameContext(RenderTexture* renderTexture) : BaseContext(renderTexture)
+InGameContext::InGameContext(RenderWindow &window) : BaseContext(window)
 {
 	sprite.setImage("res/ship.png");
-	sprite.setPosition((renderTexture->getSize().x / 2) - (sprite.getTexture()->getSize().x / 2), renderTexture->getSize().y - sprite.getTexture()->getSize().y - 32);
+	sprite.setPosition((this->window->getSize().x / 2) - (sprite.getTexture()->getSize().x / 2), this->window->getSize().y - sprite.getTexture()->getSize().y - 32);
 }
 
 void InGameContext::handleEvent(Event &e)
@@ -60,8 +60,6 @@ void InGameContext::updateLogic(Time delta)
 
 void InGameContext::draw()
 {
-	this->renderTexture->clear();
-	this->renderTexture->draw(sprite);
-	this->renderTexture->display();
+	this->window->draw(sprite);
 }
 

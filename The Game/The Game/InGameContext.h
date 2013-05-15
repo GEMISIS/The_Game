@@ -6,7 +6,7 @@
 class InGameContext : public BaseContext{
 public:
 	InGameContext();
-	InGameContext(RenderTexture* renderTexture);
+	InGameContext(RenderWindow &window);
 	void handleEvent(Event &e);
 	void updateLogic(Time delta);
 	void draw();

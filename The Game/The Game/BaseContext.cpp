@@ -5,8 +5,8 @@ BaseContext::BaseContext()
 {
 }
 
-BaseContext::BaseContext(RenderTexture* renderTexture)
+BaseContext::BaseContext(RenderWindow &window)
 {
-	this->renderTexture = renderTexture;
+	this->window = &window;
 }
 
