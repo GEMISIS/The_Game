@@ -20,6 +20,8 @@ void TextureInterface::setLoadedTexture(const string &filename)
 	if(texLoaded) decTexAmount();
 
 	if(textureMap.count(filename) > 0){
+		int i;
+		int j = i;
 		loadedTexture = &textureMap[filename];
 		this->filename = filename;
 		texLoaded = true;

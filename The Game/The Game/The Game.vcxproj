@@ -80,13 +80,11 @@
     <ClCompile Include="InGameContext.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TextureInterface.cpp" />
-    <ClCompile Include="CharacterClass.cpp" />
     <ClCompile Include="Entity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextureInterface.h" />
     <ClInclude Include="BaseContext.h" />
-    <ClInclude Include="CharacterClass.h" />
     <ClInclude Include="InGameContext.h" />
     <ClInclude Include="Entity.h" />
   </ItemGroup>

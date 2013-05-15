@@ -13,9 +13,10 @@ class TextureInterface
 {
 public:
 	TextureInterface();
+	TextureInterface(const TextureInterface &ti);
 	TextureInterface(const string &filename);
 	~TextureInterface();
-	void setLoadedTexture(const string &filename);
+	void setLoadedTexture(const string &filenamea);
 
 protected:
 	Texture* loadedTexture;

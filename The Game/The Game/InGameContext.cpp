@@ -3,18 +3,14 @@
 #include "Entity.h"
 #include <iostream>
 
-Entity sprite;
+Entity player("res/ship.png");
 const Vector2f velocitySpeed(0.5f, 0.5f);
 Vector2f velocity;
 
-InGameContext::InGameContext()
-{
-}
-
+InGameContext::InGameContext(){}
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window)
 {
-	sprite.setImage("res/ship.png");
-	sprite.setPosition(((float)this->window->getSize().x / 2) - ((float)sprite.getTexture()->getSize().x / 2), (float)this->window->getSize().y - (float)sprite.getTexture()->getSize().y - 32);
+	player.setPosition(((float)this->window->getSize().x / 2) - ((float)player.getTexture()->getSize().x / 2), (float)this->window->getSize().y - (float)player.getTexture()->getSize().y - 32);
 }
 
 void InGameContext::handleEvent(Event &e)
@@ -59,11 +55,11 @@ void InGameContext::updateLogic(Time delta)
 	{
 		velocity.y = velocitySpeed.y;
 	}
-	sprite.move(velocity);
+	player.move(velocity);
 }
 
 void InGameContext::draw()
 {
-	this->window->draw(sprite);
+	this->window->draw(player);
 }
 
