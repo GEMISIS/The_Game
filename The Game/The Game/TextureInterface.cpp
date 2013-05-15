@@ -73,17 +73,20 @@ void TextureInterface::removeTextureFromList(const string filename)
 
 TextureInterface::~TextureInterface()
 {
-	if(TextureInterface::textureMap.count(filename) > 0)
+	if(TextureInterface::textureMap.size() > 0)
 	{
-		if(TextureInterface::textureAmounts[filename] < 2)
+		if(TextureInterface::textureMap.count(filename) > 0)
 		{
-			TextureInterface::textureMap.at(filename)->~Texture();
-			TextureInterface::textureMap.erase(filename);
-			TextureInterface::textureAmounts.erase(filename);
-		}
-		else
-		{
-			TextureInterface::textureAmounts[filename] -= 1;
+			if(TextureInterface::textureAmounts[filename] < 2)
+			{
+				TextureInterface::textureMap.at(filename)->~Texture();
+				TextureInterface::textureMap.erase(filename);
+				TextureInterface::textureAmounts.erase(filename);
+			}
+			else
+			{
+				TextureInterface::textureAmounts[filename] -= 1;
+			}
 		}
 	}
 }

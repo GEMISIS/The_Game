@@ -3,19 +3,18 @@
 
 #include <SFML/Graphics.hpp>
 
+using namespace sf;
+
 class BaseContext{
 public:
 	BaseContext();
-	BaseContext(sf::RenderWindow* w);
-	virtual void handleEvent(sf::Event &e);
-	virtual void updateLogic(sf::Time delta);
-	virtual void draw();
-
+	BaseContext(RenderTexture* renderTexture);
+	virtual void handleEvent(Event &e) = 0;
+	virtual void updateLogic(Time delta) = 0;
+	virtual void draw() = 0;
 protected:
-	sf::RenderWindow* window;
-
+	RenderTexture* renderTexture;
 private:
-
 };
 
 #endif

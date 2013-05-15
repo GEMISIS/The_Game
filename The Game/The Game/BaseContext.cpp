@@ -1,9 +1,12 @@
 #include "BaseContext.h"
 #include <iostream>
 
-BaseContext::BaseContext(){}
-BaseContext::BaseContext(sf::RenderWindow* w){window = w;}
+BaseContext::BaseContext()
+{
+}
 
-void BaseContext::handleEvent(sf::Event &e){}
-void BaseContext::updateLogic(sf::Time delta){}
-void BaseContext::draw(){}
+BaseContext::BaseContext(RenderTexture* renderTexture)
+{
+	this->renderTexture = renderTexture;
+}
+

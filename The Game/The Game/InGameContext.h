@@ -6,13 +6,11 @@
 class InGameContext : public BaseContext{
 public:
 	InGameContext();
-	InGameContext(sf::RenderWindow* w);
-	void handleEvent(sf::Event &e);
-	void updateLogic(sf::Time delta);
+	InGameContext(RenderTexture* renderTexture);
+	void handleEvent(Event &e);
+	void updateLogic(Time delta);
 	void draw();
-
 private:
-	
 };
 
 #endif
