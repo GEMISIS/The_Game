@@ -14,7 +14,7 @@ InGameContext::InGameContext()
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window)
 {
 	sprite.setImage("res/ship.png");
-	sprite.setPosition((this->window->getSize().x / 2) - (sprite.getTexture()->getSize().x / 2), this->window->getSize().y - sprite.getTexture()->getSize().y - 32);
+	sprite.setPosition(((float)this->window->getSize().x / 2) - ((float)sprite.getTexture()->getSize().x / 2), (float)this->window->getSize().y - (float)sprite.getTexture()->getSize().y - 32);
 }
 
 void InGameContext::handleEvent(Event &e)
@@ -57,7 +57,7 @@ void InGameContext::updateLogic(Time delta)
 	}
 	if(Keyboard::isKeyPressed(Keyboard::Escape))
 	{
-		this->exitGameTrigger = true;
+		this->window->close();
 	}
 	sprite.move(velocity);
 }
