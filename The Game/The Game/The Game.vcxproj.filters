@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Context">
       <UniqueIdentifier>{ce5ec70d-a8d0-4b00-b3da-73522c513441}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Physics">
+      <UniqueIdentifier>{9a7c5879-ed96-4277-af52-9eafcb23dd50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{d7621ef3-1d1d-4329-8660-eb3fc2539545}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,6 +45,9 @@
     <ClCompile Include="TextureInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Force.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SpriteBaseClass.h">
@@ -55,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="TextureInterface.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Force.h">
+      <Filter>Header Files\Physics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
