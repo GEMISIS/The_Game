@@ -1,6 +1,8 @@
 #include "BaseContext.h"
 #include <iostream>
 
+BaseContext* BaseContext::currentContext;
+
 BaseContext::BaseContext()
 {
 }
