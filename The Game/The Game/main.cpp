@@ -11,7 +11,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 #endif
 {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "The Game");
-	BaseContext::currentContext = new InGameContext(window);
+	InGameContext* game = new InGameContext(window);
+	BaseContext::currentContext = game;
 	sf::Clock deltaClock;
 
     while (window.isOpen())
@@ -32,6 +33,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		window.display();
     }
 
-	delete BaseContext::currentContext;
+	delete game;
     return 0;
 }

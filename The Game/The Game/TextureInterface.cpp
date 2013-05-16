@@ -6,7 +6,6 @@ unordered_map<string, unsigned int> TextureInterface::textureAmounts;
 TextureInterface::TextureInterface()
 {
 }
-
 TextureInterface::TextureInterface(const TextureInterface &ti)
 {
 	this->filename = ti.filename;
@@ -14,12 +13,10 @@ TextureInterface::TextureInterface(const TextureInterface &ti)
 	this->loadedTexture = ti.loadedTexture;
 	this->incTexAmount();
 }
-
 TextureInterface::TextureInterface(const string &filename)
 {
 	this->setLoadedTexture(filename);
 }
-
 TextureInterface::~TextureInterface()
 {
 	this->decTexAmount();
@@ -60,19 +57,19 @@ unsigned int TextureInterface::getTexAmount()
 {
 	return (this->textureAmounts.count(this->filename) > 0) ? this->textureAmounts[this->filename] : 0;
 }
-
 void TextureInterface::incTexAmount()
 {
 	if(this->textureAmounts.count(this->filename) == 0)
 	{
 		this->textureAmounts.insert(pair<string, int>(this->filename, 1));
+		cout << "creating " << filename << endl;
 	}
 	else
 	{
 		this->textureAmounts[this->filename] += 1;
+		cout << "adding " << filename << " to " << textureAmounts[filename] << endl;
 	}
 }
-
 void TextureInterface::decTexAmount()
 {
 	if(this->textureAmounts.size() > 0)
@@ -83,10 +80,12 @@ void TextureInterface::decTexAmount()
 			{
 				this->textureMap.erase(this->filename);
 				this->textureAmounts.erase(this->filename);
+				cout << "deleting " << filename << endl;
 			}
 			else
 			{
 				this->textureAmounts[this->filename] -= 1;
+				cout << "subtracting " << filename << " to " << textureAmounts[filename] << endl;
 			}
 		}
 	}
