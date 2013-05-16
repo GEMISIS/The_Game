@@ -24,28 +24,28 @@ void Player::calcSmoothInput(){
 		if((rDown && rFirst) || (lDown && !rDown))
 			addVelocity(Vector2f(-MOVE_SPEED,0));	
 	}else
-		if(lFirst) lFirst = false;	
+		lFirst = false;	
 
 	if(rDown){
 		if(!rFirst && !lFirst) rFirst = true;
 		if((lDown && lFirst) || (rDown && !lDown))
 			addVelocity(Vector2f(MOVE_SPEED,0));
 	}else
-		if(rFirst) rFirst = false;		
+		rFirst = false;		
 
 	if(uDown){
 		if(!uFirst && !dFirst) uFirst = true;
 		if((dDown && dFirst) || (uDown && !dDown))
 			addVelocity(Vector2f(0,-MOVE_SPEED));
 	}else
-		if(uFirst) uFirst = false;
+		uFirst = false;
 		
 	if(dDown){
 		if(!dFirst && !uFirst) dFirst = true;
 		if((uDown && uFirst) || (dDown && !uDown))
 			addVelocity(Vector2f(0,MOVE_SPEED));
 	}else
-		if(dFirst) dFirst = false;
+		dFirst = false;
 }
 
 void Player::resetVelocity(){velocity = sf::Vector2f(0,0);}
