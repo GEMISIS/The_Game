@@ -37,6 +37,12 @@
     <Filter Include="Header Files\Collision">
       <UniqueIdentifier>{1942921d-1dfb-4af6-a07a-bd7694fa0250}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Draw">
+      <UniqueIdentifier>{786d8c7f-469f-48fa-9de3-0486dd2ae4d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Draw">
+      <UniqueIdentifier>{d58a7abf-4a74-4a05-a795-cf5c912e712b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,9 +54,6 @@
     <ClCompile Include="InGameContext.cpp">
       <Filter>Source Files\Context</Filter>
     </ClCompile>
-    <ClCompile Include="TextureInterface.cpp">
-      <Filter>Source Files\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="PhysicsObject.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
@@ -61,7 +64,10 @@
       <Filter>Source Files\Collision</Filter>
     </ClCompile>
     <ClCompile Include="StoredSprite.cpp">
-      <Filter>Source Files\Entity</Filter>
+      <Filter>Source Files\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureInterface.cpp">
+      <Filter>Source Files\Draw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,20 +77,20 @@
     <ClInclude Include="InGameContext.h">
       <Filter>Header Files\Context</Filter>
     </ClInclude>
-    <ClInclude Include="TextureInterface.h">
-      <Filter>Header Files\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicsObject.h">
       <Filter>Header Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Entity</Filter>
     </ClInclude>
     <ClInclude Include="CollidableObject.h">
       <Filter>Header Files\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="StoredSprite.h">
+    <ClInclude Include="TextureInterface.h">
+      <Filter>Header Files\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
       <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="StoredSprite.h">
+      <Filter>Header Files\Draw</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
