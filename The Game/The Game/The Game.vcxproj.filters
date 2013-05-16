@@ -48,9 +48,6 @@
     <ClCompile Include="InGameContext.cpp">
       <Filter>Source Files\Context</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="TextureInterface.cpp">
       <Filter>Source Files\Entity</Filter>
     </ClCompile>
@@ -63,6 +60,9 @@
     <ClCompile Include="CollidableObject.cpp">
       <Filter>Source Files\Collision</Filter>
     </ClCompile>
+    <ClCompile Include="StoredSprite.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContext.h">
@@ -70,9 +70,6 @@
     </ClInclude>
     <ClInclude Include="InGameContext.h">
       <Filter>Header Files\Context</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files\Entity</Filter>
     </ClInclude>
     <ClInclude Include="TextureInterface.h">
       <Filter>Header Files\Entity</Filter>
@@ -85,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="CollidableObject.h">
       <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="StoredSprite.h">
+      <Filter>Header Files\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
