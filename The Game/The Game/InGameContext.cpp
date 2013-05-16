@@ -7,7 +7,6 @@ float pmf = 100.0;
 InGameContext::InGameContext(){}
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png",1)
 {
-	player.setImage("res/ship.png");
 	player.setPosition(((float)this->window->getSize().x / 2) - ((float)player.getTexture()->getSize().x / 2), (float)this->window->getSize().y - (float)player.getTexture()->getSize().y - 32);
 }
 
