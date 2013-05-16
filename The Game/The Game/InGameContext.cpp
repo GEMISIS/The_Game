@@ -3,13 +3,14 @@
 #include "Entity.h"
 #include <iostream>
 
-Entity player("res/ship.png");
+Entity player;
 const Vector2f velocitySpeed(0.5f, 0.5f);
 Vector2f velocity;
 
 InGameContext::InGameContext(){}
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window)
 {
+	player.setImage("res/ship.png");
 	player.setPosition(((float)this->window->getSize().x / 2) - ((float)player.getTexture()->getSize().x / 2), (float)this->window->getSize().y - (float)player.getTexture()->getSize().y - 32);
 }
 
