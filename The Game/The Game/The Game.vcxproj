@@ -79,10 +79,14 @@
     <ClCompile Include="BaseContext.cpp" />
     <ClCompile Include="InGameContext.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PhysicsEntity.cpp" />
+    <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="TextureInterface.cpp" />
     <ClCompile Include="Entity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PhysicsEntity.h" />
+    <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="TextureInterface.h" />
     <ClInclude Include="BaseContext.h" />
     <ClInclude Include="InGameContext.h" />

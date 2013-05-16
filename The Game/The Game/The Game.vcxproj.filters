@@ -42,10 +42,16 @@
     <ClCompile Include="InGameContext.cpp">
       <Filter>Source Files\Context</Filter>
     </ClCompile>
-    <ClCompile Include="TextureInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureInterface.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObject.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEntity.cpp">
       <Filter>Source Files\Entity</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,11 +62,17 @@
     <ClInclude Include="InGameContext.h">
       <Filter>Header Files\Context</Filter>
     </ClInclude>
-    <ClInclude Include="TextureInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureInterface.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEntity.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>Header Files\Physics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

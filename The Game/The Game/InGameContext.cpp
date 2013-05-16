@@ -2,13 +2,7 @@
 
 #include <iostream>
 
-<<<<<<< HEAD
-Entity player;
-const Vector2f velocitySpeed(0.5f, 0.5f);
-Vector2f velocity;
-=======
 float pmf = 100.0;
->>>>>>> Physics System
 
 InGameContext::InGameContext(){}
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png",1)
