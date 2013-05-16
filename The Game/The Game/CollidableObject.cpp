@@ -1,4 +1,4 @@
-#include "Collidable.h"
+#include "CollidableObject.h"
 
 CollidableObject::CollidableObject(){}
 CollidableObject::CollidableObject(const sf::FloatRect &hitbox){this->hitbox = hitbox;}

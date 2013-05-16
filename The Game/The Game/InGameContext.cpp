@@ -2,10 +2,10 @@
 
 #include <iostream>
 
-float pmf = 100.0;
+float pmf = 500.0;
 
 InGameContext::InGameContext(){}
-InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png",1)
+InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png")
 {
 	player.setPosition(((float)this->window->getSize().x / 2) - ((float)player.getTexture()->getSize().x / 2), (float)this->window->getSize().y - (float)player.getTexture()->getSize().y - 32);
 }
@@ -22,27 +22,20 @@ void InGameContext::handleEvent(Event &e)
 }
 void InGameContext::updateLogic(Time delta)
 {
+	player.resetVelocity();
 	if(Keyboard::isKeyPressed(Keyboard::Left))
-		player.addForce("left",Vector2f(-pmf,0));
-	else
-		player.removeForce("left");
+		player.addVelocity(Vector2f(-pmf,0));
 
 	if(Keyboard::isKeyPressed(Keyboard::Right))
-		player.addForce("right",Vector2f(pmf,0));
-	else
-		player.removeForce("right");
+		player.addVelocity(Vector2f(pmf,0));
 
 	if(Keyboard::isKeyPressed(Keyboard::Up))
-		player.addForce("up",Vector2f(0,-pmf));
-	else
-		player.removeForce("up");
+		player.addVelocity(Vector2f(0,-pmf));
 
 	if(Keyboard::isKeyPressed(Keyboard::Down))
-		player.addForce("down",Vector2f(0,pmf));
-	else
-		player.removeForce("down");
+		player.addVelocity(Vector2f(0,pmf));
 
-	player.applyPhysics(delta);
+	player.move(delta);
 }
 void InGameContext::draw()
 {

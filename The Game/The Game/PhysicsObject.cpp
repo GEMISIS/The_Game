@@ -6,7 +6,7 @@ PhysicsObject::~PhysicsObject(){forces.clear();}
 
 //public
 
-void PhysicsObject::addForce(const std::string &name, sf::Vector2f force){
+void PhysicsObject::addForce(const std::string &name, const sf::Vector2f &force){
 	//Adds a force to the physics object
 	//If the force already exists, nothing happens.
 	forces.insert(std::pair<std::string,sf::Vector2f>(name,force));
@@ -19,7 +19,7 @@ void PhysicsObject::removeForce(const std::string &name){
 
 //protected
 
-sf::Vector2f PhysicsObject::calcPhysics(sf::Time delta){
+sf::Vector2f PhysicsObject::calcPhysics(const sf::Time &delta){
 	//Calculates the change in velocity over time delta
 	//Returns the new velocity in units/second
 	sf::Vector2f acc;

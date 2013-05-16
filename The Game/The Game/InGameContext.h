@@ -2,7 +2,7 @@
 #define INGAMECONTEXT_H
 
 #include "BaseContext.h"
-#include "PhysicsEntity.h"
+#include "Player.h"
 
 class InGameContext : public BaseContext{
 public:
@@ -12,7 +12,7 @@ public:
 	void updateLogic(Time delta);
 	void draw();
 private:
-	PhysicsEntity player;
+	Player player;
 };
 
 #endif

@@ -11,14 +11,14 @@ public:
 	PhysicsObject(int mass);
 	~PhysicsObject();
 	
-	void addForce(const std::string &name, sf::Vector2f force);
+	void addForce(const std::string &name, const sf::Vector2f &force);
 	void removeForce(const std::string &name);
-	virtual void applyPhysics(sf::Time delta) = 0;
+	virtual void applyPhysics(const sf::Time &delta) = 0;
 
 protected:
 	int mass;
 
-	sf::Vector2f calcPhysics(sf::Time delta);
+	sf::Vector2f calcPhysics(const sf::Time &delta);
 
 private:
 	sf::Vector2f velocity;

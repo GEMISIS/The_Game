@@ -57,10 +57,10 @@
     <ClCompile Include="PhysicsObject.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsEntity.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>Source Files\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Collidable.cpp">
+    <ClCompile Include="CollidableObject.cpp">
       <Filter>Source Files\Collision</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,13 +77,13 @@
     <ClInclude Include="TextureInterface.h">
       <Filter>Header Files\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicsEntity.h">
-      <Filter>Header Files\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicsObject.h">
       <Filter>Header Files\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Collidable.h">
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CollidableObject.h">
       <Filter>Header Files\Collision</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,5 @@
-#ifndef COLLIDABLE_H
-#define COLLIDABLE_H
+#ifndef COLLIDABLEOBJECT_H
+#define COLLIDABLEOBJECT_H
 
 #include <SFML/Graphics.hpp>
 
