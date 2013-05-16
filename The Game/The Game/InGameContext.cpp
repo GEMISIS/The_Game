@@ -36,9 +36,13 @@ void InGameContext::updateLogic(Time delta)
 		player.addVelocity(Vector2f(0,pmf));
 
 	player.move(delta);
+
+	if(player.collides(test))
+		cout << "collision" << endl;
 }
 void InGameContext::draw()
 {
+	this->window->draw(test);
 	this->window->draw(player);
 }
 
