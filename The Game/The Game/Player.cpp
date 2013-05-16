@@ -3,13 +3,50 @@
 const float Player::MOVE_SPEED = 500.0;
 const sf::Vector2f Player::HITBOX_SIZE(50.0,50.0);
 
-Player::Player(){}
+Player::Player(){init();}
 Player::Player(const std::string &filename): sprite(filename){
+	init();
 	hitbox.width = HITBOX_SIZE.x;
 	hitbox.height = HITBOX_SIZE.y;
 }
 
 //public
+
+void Player::calcSmoothInput(){
+	//Calculates the effect of current player input
+	bool lDown = Keyboard::isKeyPressed(Keyboard::Left);
+	bool rDown = Keyboard::isKeyPressed(Keyboard::Right);
+	bool uDown = Keyboard::isKeyPressed(Keyboard::Up);
+	bool dDown = Keyboard::isKeyPressed(Keyboard::Down);
+
+	if(lDown){
+		if(!lFirst && !rFirst) lFirst = true;
+		if((rDown && rFirst) || (lDown && !rDown))
+			addVelocity(Vector2f(-MOVE_SPEED,0));	
+	}else
+		if(lFirst) lFirst = false;	
+
+	if(rDown){
+		if(!rFirst && !lFirst) rFirst = true;
+		if((lDown && lFirst) || (rDown && !lDown))
+			addVelocity(Vector2f(MOVE_SPEED,0));
+	}else
+		if(rFirst) rFirst = false;		
+
+	if(uDown){
+		if(!uFirst && !dFirst) uFirst = true;
+		if((dDown && dFirst) || (uDown && !dDown))
+			addVelocity(Vector2f(0,-MOVE_SPEED));
+	}else
+		if(uFirst) uFirst = false;
+		
+	if(dDown){
+		if(!dFirst && !uFirst) dFirst = true;
+		if((uDown && uFirst) || (dDown && !uDown))
+			addVelocity(Vector2f(0,MOVE_SPEED));
+	}else
+		if(dFirst) dFirst = false;
+}
 
 void Player::resetVelocity(){velocity = sf::Vector2f(0,0);}
 void Player::addVelocity(const sf::Vector2f &amt){velocity += amt;}
@@ -19,7 +56,6 @@ void Player::move(const sf::Time &delta){
 	hitbox.left += amt.x;
 	hitbox.top += amt.y;
 }
-
 void Player::setPosition(float x, float y){
 	sprite.setPosition(x,y);
 	hitbox.left = x;
@@ -36,3 +72,10 @@ void Player::collidesWith(const CollidableObject &other){}
 //private
 
 void Player::draw (RenderTarget &target, RenderStates states) const{target.draw(sprite,states);}
+void Player::init(){
+	//An initalization function because c++ doesn't support delegating constructors
+	lFirst = false;
+	rFirst = false;
+	uFirst = false;
+	dFirst = false;
+}

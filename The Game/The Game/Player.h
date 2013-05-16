@@ -12,6 +12,8 @@ public:
 	Player();
 	Player(const std::string &filename);
 
+	void calcSmoothInput();
+
 	void resetVelocity();
 	void addVelocity(const sf::Vector2f &amt);
 	void move(const sf::Time &delta);
@@ -22,8 +24,13 @@ public:
 private:
 	StoredSprite sprite;
 	sf::Vector2f velocity;
+	bool rFirst;
+	bool lFirst;
+	bool uFirst;
+	bool dFirst;
 
 	void draw(RenderTarget &target, RenderStates states) const;
+	void init();
 };
 
 #endif

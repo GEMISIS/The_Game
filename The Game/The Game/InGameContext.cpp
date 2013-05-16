@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-float pmf = 500.0;
-
 InGameContext::InGameContext(){}
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png")
 {
@@ -23,26 +21,11 @@ void InGameContext::handleEvent(Event &e)
 void InGameContext::updateLogic(Time delta)
 {
 	player.resetVelocity();
-	if(Keyboard::isKeyPressed(Keyboard::Left))
-		player.addVelocity(Vector2f(-pmf,0));
-
-	if(Keyboard::isKeyPressed(Keyboard::Right))
-		player.addVelocity(Vector2f(pmf,0));
-
-	if(Keyboard::isKeyPressed(Keyboard::Up))
-		player.addVelocity(Vector2f(0,-pmf));
-
-	if(Keyboard::isKeyPressed(Keyboard::Down))
-		player.addVelocity(Vector2f(0,pmf));
-
+	player.calcSmoothInput();
 	player.move(delta);
-
-	if(player.collides(test))
-		cout << "collision" << endl;
 }
 void InGameContext::draw()
 {
-	this->window->draw(test);
 	this->window->draw(player);
 }
 
