@@ -1,6 +1,7 @@
 #include "InGameContext.h"
 
 #include <iostream>
+#include "testclass.h"
 
 InGameContext::InGameContext(){}
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png")

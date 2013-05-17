@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Draw">
       <UniqueIdentifier>{d58a7abf-4a74-4a05-a795-cf5c912e712b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Path">
+      <UniqueIdentifier>{a127ab1d-ff22-4851-8904-5fe3b8ea3394}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Path">
+      <UniqueIdentifier>{b5da50a5-1163-4c58-91d8-3fcc8f991a25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -69,6 +75,9 @@
     <ClCompile Include="TextureInterface.cpp">
       <Filter>Source Files\Draw</Filter>
     </ClCompile>
+    <ClCompile Include="Path.cpp">
+      <Filter>Source Files\Path</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContext.h">
@@ -91,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="StoredSprite.h">
       <Filter>Header Files\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Header Files\Path</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
