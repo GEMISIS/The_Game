@@ -4,7 +4,11 @@
 
 
 InGameContext::InGameContext(){}
-InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png"), test(sf::Vector2f(400,50), 1)
+InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png"), 
+	test1(sf::Vector2f(400,50), 1),
+	test2(sf::Vector2f(350,50), 1),
+	test3(sf::Vector2f(300,50), 1),
+	test4(sf::Vector2f(450,50), 1)
 {
 	player.setPosition(((float)this->window->getSize().x / 2) - (Player::HITBOX_SIZE.x / 2), (float)this->window->getSize().y - Player::HITBOX_SIZE.y - 32);
 }
@@ -25,11 +29,17 @@ void InGameContext::updateLogic(Time delta)
 	player.calcSmoothInput();
 	player.move(delta);
 
-	test.applyPhysics(delta);
+	test1.applyPhysics(delta);
+	test2.applyPhysics(delta);
+	test3.applyPhysics(delta);
+	test4.applyPhysics(delta);
 }
 void InGameContext::draw()
 {
 	this->window->draw(player);
-	this->window->draw(test);
+	this->window->draw(test1);
+	this->window->draw(test2);
+	this->window->draw(test3);
+	this->window->draw(test4);
 }
 

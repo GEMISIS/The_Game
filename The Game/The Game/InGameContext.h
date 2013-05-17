@@ -14,7 +14,10 @@ public:
 	void draw();
 private:
 	Player player;
-	Bullet test;
+	Bullet test1;
+	Bullet test2;
+	Bullet test3;
+	Bullet test4;
 };
 
 #endif
