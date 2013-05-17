@@ -52,7 +52,7 @@ void Player::resetVelocity(){velocity = sf::Vector2f(0,0);}
 void Player::addVelocity(const sf::Vector2f &amt){velocity += amt;}
 void Player::move(const sf::Time &delta){
 	sf::Vector2f amt(velocity.x*delta.asSeconds(),velocity.y*delta.asSeconds());
-	sprite.move(amt.x, amt.y);
+	sprite.move(amt);
 	hitbox.left += amt.x;
 	hitbox.top += amt.y;
 }

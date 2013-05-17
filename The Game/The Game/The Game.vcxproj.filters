@@ -81,6 +81,9 @@
     <ClCompile Include="ImpulsePath.cpp">
       <Filter>Source Files\Path</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContext.h">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="ImpulsePath.h">
       <Filter>Header Files\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

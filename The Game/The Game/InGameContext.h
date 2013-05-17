@@ -3,6 +3,7 @@
 
 #include "BaseContext.h"
 #include "Player.h"
+#include "Bullet.h"
 
 class InGameContext : public BaseContext{
 public:
@@ -13,6 +14,7 @@ public:
 	void draw();
 private:
 	Player player;
+	Bullet test;
 };
 
 #endif

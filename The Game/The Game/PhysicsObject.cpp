@@ -21,7 +21,7 @@ sf::Vector2f PhysicsObject::calcPhysics(const sf::Time &delta){
 	//Returns the new velocity in units/second
 	sf::Vector2f acc(0,0);
 	while(!forces.empty()){
-		acc += forces.top();
+		acc += forces.top()/mass;
 		forces.pop();
 	}
 	velocity.x += acc.x*delta.asSeconds();
