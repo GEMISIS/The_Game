@@ -1,7 +1,8 @@
 #include "InGameContext.h"
 
 #include <iostream>
-#include "testclass.h"
+#include "ImpulsePath.h"
+ImpulsePath test(1.0, 0.0, sf::Vector2f(10,10), 10.0);
 
 InGameContext::InGameContext(){}
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png")

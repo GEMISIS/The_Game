@@ -78,7 +78,7 @@
     <ClCompile Include="Path.cpp">
       <Filter>Source Files\Path</Filter>
     </ClCompile>
-    <ClCompile Include="SinPath.cpp">
+    <ClCompile Include="ImpulsePath.cpp">
       <Filter>Source Files\Path</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,7 +107,7 @@
     <ClInclude Include="Path.h">
       <Filter>Header Files\Path</Filter>
     </ClInclude>
-    <ClInclude Include="SinPath.h">
+    <ClInclude Include="ImpulsePath.h">
       <Filter>Header Files\Path</Filter>
     </ClInclude>
   </ItemGroup>

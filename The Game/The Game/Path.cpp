@@ -1,4 +1,8 @@
 #include "Path.h"
 
-Path::Path(){initRotation = 0;}
-Path::Path(PhysicsObject &obj, float rot){this->obj = &obj; initRotation = rot;}
+Path::Path(){mass = 0; rotation = 0;}
+Path::Path(float mass, float rot){this->mass = mass; rotation = rot;}
+
+sf::Vector2f Path::applyRotation(sf::Vector2f force){
+	return sf::Vector2f(0,0);
+}

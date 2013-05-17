@@ -2,17 +2,19 @@
 #define PATH_H
 
 #include <SFML/Graphics.hpp>
-#include "PhysicsObject.h"
 
 class Path{
 public:
 	Path();
-	Path(PhysicsObject &obj, float rot);
-	virtual void updatePathLogic() = 0;
+	Path(float mass, float rot);
+	virtual sf::Vector2f calcForceVector() = 0;
+
+protected:
+	sf::Vector2f applyRotation(sf::Vector2f force);
 
 private:
-	float initRotation; //With 0 being right, going counter-clockwise
-	PhysicsObject* obj;
+	float mass;
+	float rotation; //With 0 being right, going counter-clockwise
 };
 
 #endif

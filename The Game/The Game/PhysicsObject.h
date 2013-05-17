@@ -2,27 +2,26 @@
 #define PHYSICSOBJECT_H
 
 #include <SFML/Graphics.hpp>
-#include <unordered_map>
-#include <string>
+#include <stack>
 
 class PhysicsObject{
 public:
 	PhysicsObject();
-	PhysicsObject(int mass);
-	~PhysicsObject();
+	PhysicsObject(float mass);
 	
-	void addForce(const std::string &name, const sf::Vector2f &force);
-	void removeForce(const std::string &name);
+	float getMass();
+
+	void applyForce(const sf::Vector2f &force);
 	virtual void applyPhysics(const sf::Time &delta) = 0;
 
 protected:
-	int mass;
+	float mass;
 
 	sf::Vector2f calcPhysics(const sf::Time &delta);
 
 private:
 	sf::Vector2f velocity;
-	std::unordered_map<std::string, sf::Vector2f> forces;
+	std::stack<sf::Vector2f> forces;
 };
 
 #endif
