@@ -1,11 +1,10 @@
 #include "ImpulsePath.h"
 
 ImpulsePath::ImpulsePath(){}
-ImpulsePath::ImpulsePath(float mass, float rot, const sf::Vector2f &targetVelocity, float accTime) :
-	Path(mass, rot)
+ImpulsePath::ImpulsePath(float mass, const sf::Vector2f &targetVelocity, float accTime) :
+	Path(mass)
 {
 	forceAmt = sf::Vector2f(targetVelocity.x/accTime*mass,targetVelocity.y/accTime*mass);
-	forceAmt = applyRotation(forceAmt);
 	time = accTime;
 }
 

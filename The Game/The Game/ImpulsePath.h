@@ -5,8 +5,8 @@
 
 class ImpulsePath : Path{
 public:
-	
-	ImpulsePath(float mass, float rot, const sf::Vector2f &targetVelocity, float accTime);
+	ImpulsePath(); //Seriously, don't do it...
+	ImpulsePath(float mass, const sf::Vector2f &targetVelocity, float accTime);
 	sf::Vector2f calcForceVector();
 
 private:
@@ -14,7 +14,7 @@ private:
 	sf::Clock clock;
 	float time;
 
-	ImpulsePath(); //Seriously, don't do it...
+	
 };
 
 #endif
