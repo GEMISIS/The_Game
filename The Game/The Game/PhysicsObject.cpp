@@ -13,6 +13,10 @@ void PhysicsObject::applyForce(const sf::Vector2f &force){
 	//(All forces are removed from the object once physics are calculated)
 	forces.push(force);
 }
+void PhysicsObject::applyInstantImpulse(const sf::Vector2f &deltaM){
+	//Applies an instant change in velocity
+	velocity += deltaM/mass;
+}
 
 //protected
 

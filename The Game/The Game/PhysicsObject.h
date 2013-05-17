@@ -12,6 +12,7 @@ public:
 	float getMass();
 
 	void applyForce(const sf::Vector2f &force);
+	void applyInstantImpulse(const sf::Vector2f &deltaM);
 	virtual void applyPhysics(const sf::Time &delta) = 0;
 
 protected:

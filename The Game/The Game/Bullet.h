@@ -5,7 +5,6 @@
 #include "PhysicsObject.h"
 #include "StoredSprite.h"
 #include "Path.h"
-#include "ImpulsePath.h"
 
 class Bullet : public PhysicsObject, public sf::Drawable{
 public:
@@ -17,7 +16,6 @@ public:
 
 private:
 	StoredSprite sprite;
-	ImpulsePath path;
 
 	void draw(RenderTarget &target, RenderStates states) const;
 };

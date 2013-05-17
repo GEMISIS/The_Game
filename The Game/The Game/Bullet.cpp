@@ -3,20 +3,18 @@
 #include <iostream>
 
 Bullet::Bullet(){}
-Bullet::Bullet(sf::Vector2f pos, float mass) : PhysicsObject(mass), path(mass, sf::Vector2f(0,50), 0.2f){
+Bullet::Bullet(sf::Vector2f pos, float mass) : PhysicsObject(mass){
 	sprite.setImage("res/bullet.png");
 	sprite.setPosition(pos);
+	applyInstantImpulse(sf::Vector2f(0,100));
 }
 //Bullet::~Bullet(){delete path;}
 
 //public
 
 void Bullet::applyPhysics(const sf::Time &delta){
-	applyForce(path.calcForceVector());
 	sf::Vector2f vel = calcPhysics(delta);
-	std::cout << vel.y << std::endl;
-	sf::Vector2f amt(vel.x*delta.asSeconds(),vel.y*delta.asSeconds());
-	sprite.move(amt);
+	sprite.move(sf::Vector2f(vel.x*delta.asSeconds(),vel.y*delta.asSeconds()));
 }
 
 //private
