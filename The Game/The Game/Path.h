@@ -7,7 +7,7 @@
 class Path{
 public:
 	Path();
-	Path(PhysicsObject &obj, float Rot);
+	Path(PhysicsObject &obj, float rot);
 	virtual void updatePathLogic() = 0;
 
 private:

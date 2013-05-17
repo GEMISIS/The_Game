@@ -78,6 +78,9 @@
     <ClCompile Include="Path.cpp">
       <Filter>Source Files\Path</Filter>
     </ClCompile>
+    <ClCompile Include="SinPath.cpp">
+      <Filter>Source Files\Path</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContext.h">
@@ -102,6 +105,9 @@
       <Filter>Header Files\Draw</Filter>
     </ClInclude>
     <ClInclude Include="Path.h">
+      <Filter>Header Files\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="SinPath.h">
       <Filter>Header Files\Path</Filter>
     </ClInclude>
   </ItemGroup>

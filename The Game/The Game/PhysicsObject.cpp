@@ -8,11 +8,12 @@ PhysicsObject::~PhysicsObject(){forces.clear();}
 
 void PhysicsObject::addForce(const std::string &name, const sf::Vector2f &force){
 	//Adds a force to the physics object
-	//If the force already exists, nothing happens.
+	//If the force already exists, nothing happens
 	forces.insert(std::pair<std::string,sf::Vector2f>(name,force));
 }
 void PhysicsObject::removeForce(const std::string &name){
 	//Removes the force from the object
+	//If the force does not exist, nothing happens
 	if(forces.count(name) > 0)
 		forces.erase(name);
 }

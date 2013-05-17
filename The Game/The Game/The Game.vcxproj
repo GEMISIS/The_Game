@@ -83,6 +83,7 @@
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SinPath.cpp" />
     <ClCompile Include="TextureInterface.cpp" />
     <ClCompile Include="StoredSprite.cpp" />
   </ItemGroup>
@@ -91,6 +92,7 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="SinPath.h" />
     <ClInclude Include="TextureInterface.h" />
     <ClInclude Include="BaseContext.h" />
     <ClInclude Include="InGameContext.h" />
