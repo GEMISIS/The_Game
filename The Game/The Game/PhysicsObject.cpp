@@ -21,14 +21,21 @@ void PhysicsObject::applyInstantImpulse(const sf::Vector2f &deltaM){
 //protected
 
 sf::Vector2f PhysicsObject::calcPhysics(const sf::Time &delta){
-	//Calculates the change in velocity over time delta
-	//Returns the new velocity in units/second
+	//Calculates the displacement of the object over time delta
+	//Returns a displacement vector
+	float t = delta.asSeconds();
 	sf::Vector2f acc(0,0);
+
 	while(!forces.empty()){
 		acc += forces.top()/mass;
 		forces.pop();
 	}
-	velocity.x += acc.x*delta.asSeconds();
-	velocity.y += acc.y*delta.asSeconds();
-	return velocity;
+	sf::Vector2f oldVel = velocity;
+	velocity.x += acc.x*t;
+	velocity.y += acc.y*t;
+
+	sf::Vector2f dis((velocity.x + oldVel.x)/2*t,(velocity.y + oldVel.y)/2*t);
+	//THIS IS STILL WRONG HURRRRG NEED TO IMPLEMENT JERK
+
+	return dis;
 }

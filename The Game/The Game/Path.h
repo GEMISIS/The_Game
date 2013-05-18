@@ -2,15 +2,11 @@
 #define PATH_H
 
 #include <SFML/Graphics.hpp>
+#include "PhysicsObject.h"
 
 class Path{
 public:
-	Path();
-	Path(float mass);
-	virtual sf::Vector2f calcForceVector() = 0;
-
-private:
-	float mass;
+	virtual sf::Vector2f calcForceVector(PhysicsObject &obj, const sf::Time &delta) = 0;
 };
 
 #endif

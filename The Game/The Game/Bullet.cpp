@@ -8,13 +8,18 @@ Bullet::Bullet(sf::Vector2f pos, float mass) : PhysicsObject(mass){
 	sprite.setPosition(pos);
 	applyInstantImpulse(sf::Vector2f(0,100));
 }
-//Bullet::~Bullet(){delete path;}
 
 //public
 
+void Bullet::setStoredSprite(StoredSprite sprite){
+	this->sprite = sprite;
+}
+void Bullet::addPath(Path* path){
+	paths.push_back(path);
+}
+
 void Bullet::applyPhysics(const sf::Time &delta){
-	sf::Vector2f vel = calcPhysics(delta);
-	sprite.move(sf::Vector2f(vel.x*delta.asSeconds(),vel.y*delta.asSeconds()));
+	sprite.move(calcPhysics(delta));
 }
 
 //private

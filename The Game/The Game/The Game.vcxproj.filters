@@ -55,6 +55,12 @@
     <Filter Include="Source Files\FileIO">
       <UniqueIdentifier>{014e224d-b3c8-41b3-b52d-0958d7fdac89}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Weapon">
+      <UniqueIdentifier>{a155d4ea-4c17-4d65-8e62-9adc34abd0a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Weapon">
+      <UniqueIdentifier>{2cfe8876-12bb-4921-9370-670fd7157919}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -90,6 +96,12 @@
     <ClCompile Include="DataFile.cpp">
       <Filter>Source Files\FileIO</Filter>
     </ClCompile>
+    <ClCompile Include="SinPath.cpp">
+      <Filter>Source Files\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContext.h">
@@ -121,6 +133,12 @@
     </ClInclude>
     <ClInclude Include="DataFile.h">
       <Filter>Header Files\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="SinPath.h">
+      <Filter>Header Files\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
