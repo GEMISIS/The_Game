@@ -79,6 +79,7 @@
     <ClCompile Include="BaseContext.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CollidableObject.cpp" />
+    <ClCompile Include="DataFile.cpp" />
     <ClCompile Include="InGameContext.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Path.cpp" />
@@ -90,6 +91,7 @@
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="CollidableObject.h" />
+    <ClInclude Include="DataFile.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Player.h" />

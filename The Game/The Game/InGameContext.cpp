@@ -1,7 +1,11 @@
 #include "InGameContext.h"
-
+#include "DataFile.h"
 #include <iostream>
 
+typedef struct
+{
+	int x, y, z;
+}TestSettings;
 
 InGameContext::InGameContext(){}
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png"), 
@@ -11,6 +15,16 @@ InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player
 	test4(sf::Vector2f(450,50), 1)
 {
 	player.setPosition(((float)this->window->getSize().x / 2) - (Player::HITBOX_SIZE.x / 2), (float)this->window->getSize().y - Player::HITBOX_SIZE.y - 32);
+
+	TestSettings test1 = {1, 5, 6};
+	TestSettings test2 = {0, 0, 0};
+	char* set1 = (char*)&test1;
+	char* set2;
+	DataFile::SaveData("testing.set", set1, sizeof(TestSettings));
+	DataFile::LoadData("testing.set", set2);
+	test2 = *((TestSettings*)set2);
+	cout << test1.x << ", " << test1.y << ", " << test1.z << "\n";
+	cout << test2.x << ", " << test2.y << ", " << test2.z << "\n";
 }
 
 void InGameContext::handleEvent(Event &e)

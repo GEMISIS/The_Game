@@ -49,6 +49,12 @@
     <Filter Include="Source Files\Path">
       <UniqueIdentifier>{b5da50a5-1163-4c58-91d8-3fcc8f991a25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\FileIO">
+      <UniqueIdentifier>{4ee2557a-6757-4ef0-9ca3-1bcf8c8c6aac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FileIO">
+      <UniqueIdentifier>{014e224d-b3c8-41b3-b52d-0958d7fdac89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,6 +87,9 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\Entity</Filter>
     </ClCompile>
+    <ClCompile Include="DataFile.cpp">
+      <Filter>Source Files\FileIO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContext.h">
@@ -109,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="DataFile.h">
+      <Filter>Header Files\FileIO</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
