@@ -6,7 +6,7 @@
 
 class Path{
 public:
-	virtual sf::Vector2f calcForceVector(PhysicsObject &obj, const sf::Time &delta) = 0;
+	virtual void calcForceVector(PhysicsObject &obj, const sf::Time &delta) = 0;
 };
 
 #endif

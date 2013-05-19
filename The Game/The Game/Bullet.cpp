@@ -6,7 +6,6 @@ Bullet::Bullet(){}
 Bullet::Bullet(sf::Vector2f pos, float mass) : PhysicsObject(mass){
 	sprite.setImage("res/bullet.png");
 	sprite.setPosition(pos);
-	applyInstantImpulse(sf::Vector2f(0,100));
 }
 
 //public
@@ -19,6 +18,10 @@ void Bullet::addPath(Path* path){
 }
 
 void Bullet::applyPhysics(const sf::Time &delta){
+	for(unsigned int i = 0; i < paths.size(); i++){
+		paths[i]->calcForceVector(*this,delta);
+	}
+
 	sprite.move(calcPhysics(delta));
 }
 

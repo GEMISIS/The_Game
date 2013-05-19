@@ -96,11 +96,11 @@
     <ClCompile Include="DataFile.cpp">
       <Filter>Source Files\FileIO</Filter>
     </ClCompile>
-    <ClCompile Include="SinPath.cpp">
-      <Filter>Source Files\Path</Filter>
-    </ClCompile>
     <ClCompile Include="Util.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TrianglePath.cpp">
+      <Filter>Source Files\Path</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,11 +134,11 @@
     <ClInclude Include="DataFile.h">
       <Filter>Header Files\FileIO</Filter>
     </ClInclude>
-    <ClInclude Include="SinPath.h">
-      <Filter>Header Files\Path</Filter>
-    </ClInclude>
     <ClInclude Include="Util.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TrianglePath.h">
+      <Filter>Header Files\Path</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
