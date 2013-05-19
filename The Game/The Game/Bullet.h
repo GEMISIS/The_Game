@@ -6,16 +6,18 @@
 #include "PhysicsObject.h"
 #include "StoredSprite.h"
 #include "Path.h"
+#include "CollidableObject.h"
 
-class Bullet : public PhysicsObject, public sf::Drawable{
+class Bullet : public PhysicsObject, public sf::Drawable, public CollidableObject{
 public:
 	Bullet();
 	Bullet(sf::Vector2f pos, float mass);
 
-	void setStoredSprite(StoredSprite sprite);
+	void setTexture(const string &filename);
 	void addPath(Path* path);
 
 	void applyPhysics(const sf::Time &delta);
+	void collidesWith(const CollidableObject &other);
 
 private:
 	StoredSprite sprite;

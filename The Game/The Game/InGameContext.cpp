@@ -19,8 +19,10 @@ InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player
 {
 	player.setPosition(((float)this->window->getSize().x / 2) - (Player::HITBOX_SIZE.x / 2), (float)this->window->getSize().y - Player::HITBOX_SIZE.y - 32);
 
-	sf::Vector2f initImp(0,100);
-
+	test1.setTexture("res/bullet.png");
+	test2.setTexture("res/bullet.png");
+	test3.setTexture("res/bullet.png");
+	test4.setTexture("res/bullet.png");
 	test1.addPath(new TrianglePath(test1,sf::Vector2f(0,100),800,1.0f,true));
 	test2.addPath(new TrianglePath(test2,sf::Vector2f(0,-100),800,1.0f,true));
 	test3.addPath(new TrianglePath(test3,sf::Vector2f(100,0),600,1.0f,true));
@@ -57,6 +59,9 @@ void InGameContext::updateLogic(Time delta)
 	test2.applyPhysics(delta);
 	test3.applyPhysics(delta);
 	test4.applyPhysics(delta);
+
+	if(player.collides(test1) || player.collides(test2) || player.collides(test3) || player.collides(test4))
+		cout << "BOOM" << endl;
 }
 void InGameContext::draw()
 {
