@@ -12,19 +12,19 @@ typedef struct
 
 InGameContext::InGameContext(){}
 InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png"), 
-	test1(sf::Vector2f(400,50), 1),
-	test2(sf::Vector2f(400,50), 1),
-	test3(sf::Vector2f(400,50), 1),
-	test4(sf::Vector2f(400,50), 1)
+	test1(sf::Vector2f(400,0), 1),
+	test2(sf::Vector2f(400,600), 1),
+	test3(sf::Vector2f(0,300), 1),
+	test4(sf::Vector2f(800,300), 1)
 {
 	player.setPosition(((float)this->window->getSize().x / 2) - (Player::HITBOX_SIZE.x / 2), (float)this->window->getSize().y - Player::HITBOX_SIZE.y - 32);
 
 	sf::Vector2f initImp(0,100);
 
-	test1.addPath(new TrianglePath(test1,initImp,800,1.0f,true));
-	test2.addPath(new TrianglePath(test2,initImp,800,1.0f,false));
-	test3.addPath(new TrianglePath(test3,initImp,800,1.0f,true));
-	test4.addPath(new TrianglePath(test4,initImp,800,1.0f,false));
+	test1.addPath(new TrianglePath(test1,sf::Vector2f(0,100),800,1.0f,true));
+	test2.addPath(new TrianglePath(test2,sf::Vector2f(0,-100),800,1.0f,true));
+	test3.addPath(new TrianglePath(test3,sf::Vector2f(100,0),600,1.0f,true));
+	test4.addPath(new TrianglePath(test4,sf::Vector2f(-100,0),600,1.0f,true));
 
 	TestSettings test1 = {1, 5, 6};
 	TestSettings test2 = {0, 0, 0};
