@@ -31,7 +31,8 @@ void Bullet::applyPhysics(const sf::Time &delta){
 	hitbox.left += dis.x;
 	hitbox.top += dis.y;
 }
-void Bullet::collidesWith(const CollidableObject &other){}
+void Bullet::collidesWith(const CollidableObject &other){kill();}
+void Bullet::kill(){slateForRemoval();}
 
 //private
 

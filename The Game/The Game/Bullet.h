@@ -7,8 +7,9 @@
 #include "StoredSprite.h"
 #include "Path.h"
 #include "CollidableObject.h"
+#include "Killable.h"
 
-class Bullet : public PhysicsObject, public sf::Drawable, public CollidableObject{
+class Bullet : public PhysicsObject, public sf::Drawable, public CollidableObject, Killable{
 public:
 	Bullet();
 	Bullet(sf::Vector2f pos, float mass);
@@ -18,6 +19,7 @@ public:
 
 	void applyPhysics(const sf::Time &delta);
 	void collidesWith(const CollidableObject &other);
+	void kill();
 
 private:
 	StoredSprite sprite;

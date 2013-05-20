@@ -61,6 +61,12 @@
     <Filter Include="Source Files\Weapon">
       <UniqueIdentifier>{2cfe8876-12bb-4921-9370-670fd7157919}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\LifetimeManagement">
+      <UniqueIdentifier>{a5f9ed90-1189-4750-999c-430ce332888c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LifetimeManagement">
+      <UniqueIdentifier>{8dabb7c8-46d4-4a7d-8082-7bc631b174d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -102,6 +108,12 @@
     <ClCompile Include="TrianglePath.cpp">
       <Filter>Source Files\Path</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionCheck.cpp">
+      <Filter>Source Files\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Killable.cpp">
+      <Filter>Source Files\LifetimeManagement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContext.h">
@@ -139,6 +151,12 @@
     </ClInclude>
     <ClInclude Include="TrianglePath.h">
       <Filter>Header Files\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionCheck.h">
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Killable.h">
+      <Filter>Header Files\LifetimeManagement</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
