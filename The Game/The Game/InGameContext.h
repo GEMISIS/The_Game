@@ -5,24 +5,27 @@
 #include "BaseContext.h"
 #include "Player.h"
 #include "Bullet.h"
-#include "Killable.h"
+#include "Entity.h"
 #include "CollisionCheck.h"
 
 class InGameContext : public BaseContext{
 public:
 	InGameContext();
 	InGameContext(RenderWindow &window);
+
+	void cleanup();
+
 	void handleEvent(Event &e);
 	void updateLogic(Time delta);
 	void draw();
 private:
 	Player player;
-	Bullet test1;
-	Bullet test2;
-	Bullet test3;
-	Bullet test4;
+	//Bullet test1;
+	//Bullet test2;
+	//Bullet test3;
+	//Bullet test4;
 
-	list<Killable*> entList;
+	list<Entity*> entities;
 	CollisionCheck playerColCheck;
 };
 

@@ -114,6 +114,9 @@
     <ClCompile Include="Killable.cpp">
       <Filter>Source Files\LifetimeManagement</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContext.h">
@@ -157,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="Killable.h">
       <Filter>Header Files\LifetimeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

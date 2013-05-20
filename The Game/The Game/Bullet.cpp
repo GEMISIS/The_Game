@@ -3,17 +3,18 @@
 #include <iostream>
 
 Bullet::Bullet(){}
-Bullet::Bullet(sf::Vector2f pos, float mass) : PhysicsObject(mass){
-	sprite.setPosition(pos);
+Bullet::Bullet(sf::Vector2f pos, float mass){
+	this->mass = mass;
+	setPosition(pos);
 	hitbox.left = pos.x;
 	hitbox.top = pos.y;
 }
 
 //public
 
-void Bullet::setTexture(const string &filename){
-	sprite.setImage(filename);
-	sf::Vector2u size = sprite.getTexture()->getSize();
+void Bullet::setStoredTexture(const string &filename){
+	StoredSprite::setStoredTexture(filename);
+	sf::Vector2u size = getTexture()->getSize();
 	hitbox.width = (float)size.x;
 	hitbox.height = (float)size.y;
 }
@@ -27,7 +28,7 @@ void Bullet::applyPhysics(const sf::Time &delta){
 	}
 
 	sf::Vector2f dis = calcPhysics(delta);
-	sprite.move(dis);
+	move(dis);
 	hitbox.left += dis.x;
 	hitbox.top += dis.y;
 }
@@ -36,4 +37,3 @@ void Bullet::kill(){slateForRemoval();}
 
 //private
 
-void Bullet::draw (RenderTarget &target, RenderStates states) const{target.draw(sprite,states);}

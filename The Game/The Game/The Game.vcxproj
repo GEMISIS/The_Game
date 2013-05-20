@@ -81,6 +81,7 @@
     <ClCompile Include="CollidableObject.cpp" />
     <ClCompile Include="CollisionCheck.cpp" />
     <ClCompile Include="DataFile.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="InGameContext.cpp" />
     <ClCompile Include="Killable.cpp" />
     <ClCompile Include="main.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="CollidableObject.h" />
     <ClInclude Include="CollisionCheck.h" />
     <ClInclude Include="DataFile.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Player.h" />

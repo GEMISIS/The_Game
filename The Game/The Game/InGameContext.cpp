@@ -11,33 +11,34 @@ typedef struct
 }TestSettings;
 
 InGameContext::InGameContext(){}
-InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png"), 
-	test1(sf::Vector2f(400,0), 1),
-	test2(sf::Vector2f(400,600), 1),
-	test3(sf::Vector2f(0,300), 1),
-	test4(sf::Vector2f(800,300), 1)
+InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player("res/ship.png")
 {
 	player.setPosition(((float)this->window->getSize().x / 2) - (Player::HITBOX_SIZE.x / 2), (float)this->window->getSize().y - Player::HITBOX_SIZE.y - 32);
 
-	test1.setTexture("res/bullet.png");
-	test2.setTexture("res/bullet.png");
-	test3.setTexture("res/bullet.png");
-	test4.setTexture("res/bullet.png");
-	test1.addPath(new TrianglePath(test1,sf::Vector2f(0,100),800,1.0f,true));
-	test2.addPath(new TrianglePath(test2,sf::Vector2f(0,-100),800,1.0f,true));
-	test3.addPath(new TrianglePath(test3,sf::Vector2f(100,0),600,1.0f,true));
-	test4.addPath(new TrianglePath(test4,sf::Vector2f(-100,0),600,1.0f,true));
+	Bullet* test1 = new Bullet(sf::Vector2f(400,0), 1);
+	Bullet* test2 = new Bullet(sf::Vector2f(400,600), 1);
+	Bullet* test3 = new Bullet(sf::Vector2f(0,300), 1);
+	Bullet* test4 = new Bullet(sf::Vector2f(800,300), 1);
+	test1->setStoredTexture("res/bullet.png");
+	test2->setStoredTexture("res/bullet.png");
+	test3->setStoredTexture("res/bullet.png");
+	test4->setStoredTexture("res/bullet.png");
+	test1->addPath(new TrianglePath(*test1,sf::Vector2f(0,100),800,1.0f,true));
+	test2->addPath(new TrianglePath(*test2,sf::Vector2f(0,-100),800,1.0f,true));
+	test3->addPath(new TrianglePath(*test3,sf::Vector2f(100,0),600,1.0f,true));
+	test4->addPath(new TrianglePath(*test4,sf::Vector2f(-100,0),600,1.0f,true));
 	playerColCheck.addItem(&player);
-	playerColCheck.addItem(&test1);
-	playerColCheck.addItem(&test2);
-	playerColCheck.addItem(&test3);
-	playerColCheck.addItem(&test4);
-	entList.push_back(&test1);
-	entList.push_back(&test2);
-	entList.push_back(&test3);
-	entList.push_back(&test4);
+	playerColCheck.addItem(test1);
+	playerColCheck.addItem(test2);
+	playerColCheck.addItem(test3);
+	playerColCheck.addItem(test4);
+	entities.push_back(test1);
+	entities.push_back(test2);
+	entities.push_back(test3);
+	entities.push_back(test4);
 
-	TestSettings test1 = {1, 5, 6};
+	//Commented out because I've changed the testing objects it uses
+	/*TestSettings test1 = {1, 5, 6};
 	TestSettings test2 = {0, 0, 0};
 	char* set1 = (char*)&test1;
 	char* set2;
@@ -45,7 +46,7 @@ InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player
 	DataFile::LoadData("testing.set", set2);
 	test2 = *((TestSettings*)set2);
 	cout << test1.x << ", " << test1.y << ", " << test1.z << "\n";
-	cout << test2.x << ", " << test2.y << ", " << test2.z << "\n";
+	cout << test2.x << ", " << test2.y << ", " << test2.z << "\n";*/
 }
 
 void InGameContext::handleEvent(Event &e)
@@ -54,6 +55,7 @@ void InGameContext::handleEvent(Event &e)
 	{
 		if(e.key.code == Keyboard::Escape)
 		{
+			this->cleanup();
 			this->window->close();
 		}
 	}
@@ -64,10 +66,12 @@ void InGameContext::updateLogic(Time delta)
 	player.calcSmoothInput();
 	player.move(delta);
 
-	test1.applyPhysics(delta);
-	test2.applyPhysics(delta);
-	test3.applyPhysics(delta);
-	test4.applyPhysics(delta);
+	auto it = entities.begin();
+	while(it != entities.end()){
+		(*it)->applyPhysics(delta);
+		++it;
+
+	}
 
 	playerColCheck.checkCollisions();
 	
@@ -75,9 +79,20 @@ void InGameContext::updateLogic(Time delta)
 void InGameContext::draw()
 {
 	this->window->draw(player);
-	this->window->draw(test1);
-	this->window->draw(test2);
-	this->window->draw(test3);
-	this->window->draw(test4);
+
+	auto it = entities.begin();
+	while(it != entities.end()){
+		this->window->draw(**it);
+		++it;
+	}
 }
 
+void InGameContext::cleanup()
+{
+	auto it = entities.begin();
+	while(it != entities.end()){
+		delete *it;
+		++it;
+	}
+	entities.clear();
+}
