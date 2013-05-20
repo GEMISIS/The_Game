@@ -10,6 +10,7 @@ public:
 	CollisionCheck();
 
 	void addItem(CollidableObject* obj);
+	void removeItem(CollidableObject* obj);
 	void checkCollisions();
 
 private:

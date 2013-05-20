@@ -27,6 +27,15 @@ InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player
 	test2.addPath(new TrianglePath(test2,sf::Vector2f(0,-100),800,1.0f,true));
 	test3.addPath(new TrianglePath(test3,sf::Vector2f(100,0),600,1.0f,true));
 	test4.addPath(new TrianglePath(test4,sf::Vector2f(-100,0),600,1.0f,true));
+	playerColCheck.addItem(&player);
+	playerColCheck.addItem(&test1);
+	playerColCheck.addItem(&test2);
+	playerColCheck.addItem(&test3);
+	playerColCheck.addItem(&test4);
+	entList.push_back(&test1);
+	entList.push_back(&test2);
+	entList.push_back(&test3);
+	entList.push_back(&test4);
 
 	TestSettings test1 = {1, 5, 6};
 	TestSettings test2 = {0, 0, 0};
@@ -60,8 +69,8 @@ void InGameContext::updateLogic(Time delta)
 	test3.applyPhysics(delta);
 	test4.applyPhysics(delta);
 
-	if(player.collides(test1) || player.collides(test2) || player.collides(test3) || player.collides(test4))
-		cout << "BOOM" << endl;
+	playerColCheck.checkCollisions();
+	
 }
 void InGameContext::draw()
 {

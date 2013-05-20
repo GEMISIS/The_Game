@@ -9,7 +9,7 @@
 #include "CollidableObject.h"
 #include "Killable.h"
 
-class Bullet : public PhysicsObject, public sf::Drawable, public CollidableObject, Killable{
+class Bullet : public PhysicsObject, public sf::Drawable, public CollidableObject, public Killable{
 public:
 	Bullet();
 	Bullet(sf::Vector2f pos, float mass);
