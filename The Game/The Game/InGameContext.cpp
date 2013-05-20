@@ -86,7 +86,6 @@ void InGameContext::draw()
 		++it;
 	}
 }
-
 void InGameContext::cleanup()
 {
 	auto it = entities.begin();

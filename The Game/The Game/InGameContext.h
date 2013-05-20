@@ -13,11 +13,10 @@ public:
 	InGameContext();
 	InGameContext(RenderWindow &window);
 
-	void cleanup();
-
 	void handleEvent(Event &e);
 	void updateLogic(Time delta);
 	void draw();
+	void cleanup();
 private:
 	Player player;
 	//Bullet test1;

@@ -23,7 +23,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         {
 			BaseContext::currentContext->handleEvent(event);
             if (event.type == sf::Event::Closed)
+			{
+				BaseContext::currentContext->cleanup();
                 window.close();
+			}
         }
 
 		BaseContext::currentContext->updateLogic(delta);
