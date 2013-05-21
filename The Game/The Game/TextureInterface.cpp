@@ -67,7 +67,7 @@ void TextureInterface::incTexAmount()
 	else
 	{
 		this->textureAmounts[this->filename] += 1;
-		cout << "adding " << filename << " to " << textureAmounts[filename] << endl;
+		//cout << "adding " << filename << " to " << textureAmounts[filename] << endl;
 	}
 }
 void TextureInterface::decTexAmount()
@@ -85,7 +85,7 @@ void TextureInterface::decTexAmount()
 			else
 			{
 				this->textureAmounts[this->filename] -= 1;
-				cout << "subtracting " << filename << " to " << textureAmounts[filename] << endl;
+				//cout << "subtracting " << filename << " to " << textureAmounts[filename] << endl;
 			}
 		}
 	}

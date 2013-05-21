@@ -31,6 +31,10 @@ void Bullet::applyPhysics(const sf::Time &delta){
 	move(dis);
 	hitbox.left += dis.x;
 	hitbox.top += dis.y;
+	
+	//remove the bullet if it goes offscreen
+	if(hitbox.left < 0 || hitbox.left > 800 || hitbox.top < 0 || hitbox.top > 600)
+		slateForRemoval();
 }
 void Bullet::collidesWith(const CollidableObject &other){kill();}
 void Bullet::kill(){slateForRemoval();}

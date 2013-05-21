@@ -4,6 +4,8 @@
 
 #include "TrianglePath.h"
 #include "Util.h"
+#include <stdlib.h>
+#include <time.h>
 
 typedef struct
 {
@@ -15,27 +17,25 @@ InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player
 {
 	player.setPosition(((float)this->window->getSize().x / 2) - (Player::HITBOX_SIZE.x / 2), (float)this->window->getSize().y - Player::HITBOX_SIZE.y - 32);
 
-	Bullet* test1 = new Bullet(sf::Vector2f(400,0), 1);
-	Bullet* test2 = new Bullet(sf::Vector2f(400,600), 1);
-	Bullet* test3 = new Bullet(sf::Vector2f(0,300), 1);
-	Bullet* test4 = new Bullet(sf::Vector2f(800,300), 1);
-	test1->setStoredTexture("res/bullet.png");
-	test2->setStoredTexture("res/bullet.png");
-	test3->setStoredTexture("res/bullet.png");
-	test4->setStoredTexture("res/bullet.png");
-	test1->addPath(new TrianglePath(*test1,sf::Vector2f(0,100),800,1.0f,true));
-	test2->addPath(new TrianglePath(*test2,sf::Vector2f(0,-100),800,1.0f,true));
-	test3->addPath(new TrianglePath(*test3,sf::Vector2f(100,0),600,1.0f,true));
-	test4->addPath(new TrianglePath(*test4,sf::Vector2f(-100,0),600,1.0f,true));
+	srand (time(NULL));
+	int x = 0;
+	int y = 0;
+
+	for(int i = 0; i < 20; ++i){
+		x += 20;
+		if(x > 800){
+			x = 0;
+			y += 20;
+		}
+
+		Bullet* b = new Bullet(sf::Vector2f(x,y), 1);
+		b->setStoredTexture("res/bullet.png");
+		b->addPath(new TrianglePath(*b,sf::Vector2f(0,100),rand()%500,rand()%5+3,true));
+		playerColCheck.addItem(b);
+		entities.push_back(b);
+	}
+
 	playerColCheck.addItem(&player);
-	playerColCheck.addItem(test1);
-	playerColCheck.addItem(test2);
-	playerColCheck.addItem(test3);
-	playerColCheck.addItem(test4);
-	entities.push_back(test1);
-	entities.push_back(test2);
-	entities.push_back(test3);
-	entities.push_back(test4);
 
 	//Commented out because I've changed the testing objects it uses
 	/*TestSettings test1 = {1, 5, 6};
@@ -62,10 +62,12 @@ void InGameContext::handleEvent(Event &e)
 }
 void InGameContext::updateLogic(Time delta)
 {
+	//Calculate player movement
 	player.resetVelocity();
 	player.calcSmoothInput();
 	player.move(delta);
 
+	//Calculate other entity movement
 	auto it = entities.begin();
 	while(it != entities.end()){
 		(*it)->applyPhysics(delta);
@@ -73,8 +75,22 @@ void InGameContext::updateLogic(Time delta)
 
 	}
 
+	//Check collisions
 	playerColCheck.checkCollisions();
 	
+	//If an entity is slated for removal, remove it.
+	it = entities.begin();
+	while(it != entities.end()){
+		if((*it)->getSlated()){
+			auto next = it;
+			++next;
+			delete *it;
+			entities.erase(it);
+			it = next;
+			continue;
+		}
+		++it;
+	}
 }
 void InGameContext::draw()
 {
