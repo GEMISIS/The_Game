@@ -60,8 +60,11 @@ void InGameContext::handleEvent(Event &e)
 		}
 	}
 }
-void InGameContext::updateLogic(Time delta)
+void InGameContext::updateLogic(const Time &delta)
 {
+	//Update player logic
+	player.updatePlayerLogic(delta);
+
 	//Calculate player movement
 	player.resetVelocity();
 	player.calcSmoothInput();

@@ -3,6 +3,7 @@
 
 #include "StoredSprite.h"
 #include "CollidableObject.h"
+#include "Weapon.h"
 
 class Player : public CollidableObject, public sf::Drawable{
 public:
@@ -11,7 +12,9 @@ public:
 
 	Player();
 	Player(const std::string &filename);
+	~Player();
 
+	void updatePlayerLogic(const sf::Time &delta);
 	void calcSmoothInput();
 
 	void resetVelocity();
@@ -28,6 +31,10 @@ private:
 	bool lFirst;
 	bool uFirst;
 	bool dFirst;
+	Weapon* weapon;
+	bool weaponOnCD;
+	float sinceLastFired;
+	float weaponCD;
 
 	void draw(RenderTarget &target, RenderStates states) const;
 	void init();

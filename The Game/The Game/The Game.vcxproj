@@ -88,6 +88,7 @@
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="BasicWeapon.cpp" />
     <ClCompile Include="TrianglePath.cpp" />
     <ClCompile Include="TextureInterface.cpp" />
     <ClCompile Include="StoredSprite.cpp" />
@@ -104,6 +105,7 @@
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Killable.h" />
+    <ClInclude Include="BasicWeapon.h" />
     <ClInclude Include="TrianglePath.h" />
     <ClInclude Include="TextureInterface.h" />
     <ClInclude Include="BaseContext.h" />

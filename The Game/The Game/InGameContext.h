@@ -12,7 +12,7 @@ public:
 	InGameContext(RenderWindow &window);
 
 	void handleEvent(Event &e);
-	void updateLogic(Time delta);
+	void updateLogic(const Time &delta);
 	void draw();
 	void cleanup();
 private:

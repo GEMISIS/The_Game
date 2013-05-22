@@ -14,7 +14,7 @@ public:
 	BaseContext();
 	BaseContext(RenderWindow &window);
 	virtual void handleEvent(Event &e) = 0;
-	virtual void updateLogic(Time delta) = 0;
+	virtual void updateLogic(const Time &delta) = 0;
 	virtual void draw() = 0;
 	virtual void cleanup() = 0;
 	void addEntity(Entity* e);

@@ -22,9 +22,6 @@
     <Filter Include="Header Files\Physics">
       <UniqueIdentifier>{9a7c5879-ed96-4277-af52-9eafcb23dd50}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Physics">
-      <UniqueIdentifier>{d7621ef3-1d1d-4329-8660-eb3fc2539545}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Entity">
       <UniqueIdentifier>{4aaf0839-a2a3-4551-978a-3bee41f7fcd8}</UniqueIdentifier>
     </Filter>
@@ -66,6 +63,9 @@
     </Filter>
     <Filter Include="Source Files\LifetimeManagement">
       <UniqueIdentifier>{8dabb7c8-46d4-4a7d-8082-7bc631b174d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{d7621ef3-1d1d-4329-8660-eb3fc2539545}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +120,9 @@
     <ClCompile Include="Weapon.cpp">
       <Filter>Source Files\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="BasicWeapon.cpp">
+      <Filter>Source Files\Weapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContext.h">
@@ -168,6 +171,9 @@
       <Filter>Header Files\Entity</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
+      <Filter>Header Files\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicWeapon.h">
       <Filter>Header Files\Weapon</Filter>
     </ClInclude>
   </ItemGroup>

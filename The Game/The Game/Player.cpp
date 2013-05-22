@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include "BasicWeapon.h"
+
 const float Player::MOVE_SPEED = 500.0;
 const sf::Vector2f Player::HITBOX_SIZE(50.0,50.0);
 
@@ -9,8 +11,17 @@ Player::Player(const std::string &filename): sprite(filename){
 	hitbox.width = HITBOX_SIZE.x;
 	hitbox.height = HITBOX_SIZE.y;
 }
+Player::~Player(){delete weapon;}
 
 //public
+
+void Player::updatePlayerLogic(const sf::Time &delta){
+	if(weaponOnCD){
+		sinceLastFired += delta.asSeconds();
+		if(sinceLastFired >= weaponCD)
+			weaponOnCD = false;
+	}
+}
 
 void Player::calcSmoothInput(){
 	//Calculates the effect of current player input
@@ -46,6 +57,12 @@ void Player::calcSmoothInput(){
 			addVelocity(Vector2f(0,MOVE_SPEED));
 	}else
 		dFirst = false;
+
+	if(Keyboard::isKeyPressed(Keyboard::Z) && !weaponOnCD){
+		weaponOnCD = true;
+		sinceLastFired = 0;
+		weapon->fire(sf::Vector2f(hitbox.left,hitbox.top),1);
+	}
 }
 
 void Player::resetVelocity(){velocity = sf::Vector2f(0,0);}
@@ -78,4 +95,7 @@ void Player::init(){
 	rFirst = false;
 	uFirst = false;
 	dFirst = false;
+	weaponOnCD = false;
+	weapon = new BasicWeapon();
+	weaponCD = 0.5f;
 }
