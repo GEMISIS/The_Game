@@ -21,11 +21,11 @@ InGameContext::InGameContext(RenderWindow &window) : BaseContext(window), player
 	int x = 0;
 	int y = 0;
 
-	for(int i = 0; i < 20; ++i){
+	for(int i = 0; i < 5000; ++i){
 		x += 20;
 		if(x > 800){
 			x = 0;
-			y += 20;
+			y += 1;
 		}
 
 		Bullet* b = new Bullet(sf::Vector2f(x,y), 1);
@@ -79,7 +79,8 @@ void InGameContext::updateLogic(const Time &delta)
 	}
 
 	//Check collisions
-	playerColCheck.checkCollisions();
+	//the current collision system is just a prototype, ignore it atm.
+	//playerColCheck.checkCollisions();
 	
 	//If an entity is slated for removal, remove it.
 	it = entities.begin();

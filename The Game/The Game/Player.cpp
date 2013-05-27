@@ -1,6 +1,9 @@
 #include "Player.h"
 
 #include "BasicWeapon.h"
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 
 const float Player::MOVE_SPEED = 500.0;
 const sf::Vector2f Player::HITBOX_SIZE(50.0,50.0);
@@ -61,7 +64,7 @@ void Player::calcSmoothInput(){
 	if(Keyboard::isKeyPressed(Keyboard::Z) && !weaponOnCD){
 		weaponOnCD = true;
 		sinceLastFired = 0;
-		weapon->fire(sf::Vector2f(hitbox.left,hitbox.top),1);
+		weapon->fire(sf::Vector2f(hitbox.left,hitbox.top),(float)(3*M_PI/2));
 	}
 }
 
